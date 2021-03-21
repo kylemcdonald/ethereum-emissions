@@ -1,0 +1,33 @@
+Name,Hashrate
+AMD Radeon RX 470,27
+AMD Radeon RX 480,29
+AMD Radeon RX 570,30
+AMD Radeon RX 580,30
+AMD Radeon RX 590,34
+AMD Radeon Vega 56,43
+AMD Radeon Vega 64,44
+AMD Radeon VII,90
+AMD Radeon RX 5600XT,43
+AMD Radeon RX 5700,54
+AMD Radeon RX 6800XT,63
+Nvidia GeForce GTX 1050 Ti,14
+Nvidia GeForce GTX 1060,20.1
+Nvidia GeForce GTX 1070,28
+Nvidia GeForce GTX 1070 Ti,30
+Nvidia P104-100,37
+Nvidia GeForce GTX 1080,38
+Nvidia GeForce GTX 1080 Ti,45
+Nvidia GeForce GTX 1660,21
+Nvidia GeForce GTX 1660 Super,30
+Nvidia GeForce GTX 1660 Ti,31.5
+Nvidia GeForce RTX 2060,31
+Nvidia GeForce RTX 2060 Super,39
+Nvidia GeForce RTX 2070,39
+Nvidia GeForce RTX 2070 Super,40
+Nvidia GeForce RTX 2080,42
+Nvidia GeForce RTX 2080 Ti,57
+Nvidia GeForce RTX 3060,48
+Nvidia GeForce RTX 3060 Ti,60
+Nvidia GeForce RTX 3070,60
+Nvidia GeForce RTX 3080,98
+Nvidia GeForce RTX 3090,120

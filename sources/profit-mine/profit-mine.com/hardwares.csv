@@ -1,0 +1,45 @@
+Name,Release,Hashrate,Power
+Nvidia Geforce GTX 1050,October 2016,12.0,60
+Nvidia Geforce GTX 1050 Ti,October 2016,12.0,70
+Nvidia Geforce GTX 1060 6gb,July 2016,21.0,90
+AMD Radeon RX 470,August 2016,29.0,120
+AMD Radeon RX 480,June 2016,31.0,135
+Nvidia Geforce GTX 1080 Ti,March 2017,50.0,220
+Nvidia Geforce GTX 1070,October 2016,28.0,120
+Nvidia Geforce GTX 1660 Ti,February 2019,30.0,90
+Nvidia Geforce GTX 1070 Ti,November 2017,30.0,130
+Nvidia Geforce GTX 1080,May 2016,36.0,150
+Nvidia Geforce RTX 2060,January 2019,27.6,130
+Nvidia Geforce RTX 2070,October 2018,42.0,140
+Nvidia Geforce RTX 2080,September 2018,42.0,150
+Nvidia Geforce RTX 2080 Ti,September 2018,52.5,220
+AMD Radeon RX 570,April 2017,30.0,120
+AMD Radeon RX 580,April 2017,32.0,135
+AMD Radeon RX Vega 56,August 2017,49.0,180
+AMD Radeon RX Vega 64,August 2017,50.0,180
+AMD Radeon R9 Fury,July 2015,30.0,170
+Innosilicon A10 ETHMaster,September 2018,485.0,850
+Nvidia Geforce GTX 1660,March 2019,25.0,90
+AMD Radeon VII,February 2019,100.0,230
+Nvidia Geforce GTX 1650,April 2019,15.0,55
+Nvidia Geforce RTX 2060 Super,July 2019,42.0,140
+Nvidia Geforce RTX 2070 Super,July 2019,42.0,140
+AMD Radeon RX 5700,July 2019,55.0,140
+AMD Radeon RX 5700 XT,July 2019,55.0,140
+Nvidia Geforce GTX TITAN Xp,April 2017,52.0,174
+Nvidia Geforce GTX 1660 Super,October 2019,30.0,90
+AMD Radeon RX 5500 XT,December 2019,26.3,65
+AMD Radeon RX 5600 XT,January 2020,42.5,94
+AMD Radeon RX 590,November 2018,33.0,150
+Nvidia Geforce RTX 2080 Super,July 2019,44.0,150
+Nvidia Geforce GTX 1650 Super,November 2019,16.5,70
+Innosilicon A10 PRO ETHMaster,May 2020,500.0,750
+Nvidia Geforce RTX 3080 ,September 2020,95.0,240
+Nvidia Geforce RTX 3090,September 2020,122.0,350
+Nvidia Geforce RTX 3070,October 2020,63.7,135
+Innosilicon A10 PRO+ ETHMiner,December 2020,720.0,1300
+AMD Radeon RX 6800,November 2020,65.0,170
+AMD Radeon RX 6800XT,November 2020,65.0,180
+Nvidia Geforce RTX 3060 Ti,December 2020,63.0,130
+AMD Radeon RX 6900 XT,December 2020,64.0,180
+Nvidia Geforce RTX 3060,February 2021,25.0,130

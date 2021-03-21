@@ -1,0 +1,242 @@
+Model,Reference Model,Hashrate (Mh),Power (Watts),Source
+GeForce GTX 1070,GeForce GTX 1070,29.32,122,minermonitoring.com
+GeForce GTX 1060 6GB,GeForce GTX 1060 6GB,23.14,95,minermonitoring.com
+GeForce GTX 1070 Ti,GeForce GTX 1070 Ti,31.42,123,minermonitoring.com
+GeForce RTX 2080,GeForce RTX 2080,43.5,169,minermonitoring.com
+GeForce GTX 1080 Ti,GeForce GTX 1080 Ti,46.01,176,minermonitoring.com
+P104-100,P104-100,31.55,116,minermonitoring.com
+GeForce RTX 2070 SUPER,GeForce RTX 2070 Super,42.35,150,minermonitoring.com
+P106-100,P106-100,24.605,84,minermonitoring.com
+GeForce GTX 1080,GeForce GTX 1080,36.72,125,minermonitoring.com
+Radeon RX 580,Radeon RX 580,30.605,96,minermonitoring.com
+Radeon (TM) RX 480 Graphics,Radeon RX 480,30.61,84,minermonitoring.com
+Radeon RX Vega,Radeon RX Vega,46.26,126,minermonitoring.com
+GeForce GTX 1660 Ti,GeForce GTX 1660 Ti,31.15,71,minermonitoring.com
+Radeon RX 570,Radeon RX 570,30.4,65,minermonitoring.com
+AMD Radeon VII,Radeon VII,75.55,148,minermonitoring.com
+Radeon (TM) RX 470 Graphics,Radeon RX 470,28.78,55,minermonitoring.com
+Innosilicon A10 PRO ETHMaster,Innosilicon A10 PRO ETHMaster,500,960,asicminervalue.com
+Innosilicon A10 PRO+ ETHMiner,Innosilicon A10 PRO+ ETHMiner,750,1350,asicminervalue.com
+687F:C1 / 8 GB,,25.2,,hashrates.com
+AMD 15D8:C9 / 8 GB,,0.79,,hashrates.com
+AMD Radeon (TM) R7 M360 / 4 GB,Radeon R7 M360,1.28,,hashrates.com
+AMD Radeon Pro WX 3100 / 4 GB,,3.78,,hashrates.com
+AMD Radeon RX 5700 XT /,Radeon RX 5700 XT,4.02,,hashrates.com
+AMD Radeon(TM) R9 290X / 4 GB,Radeon R9 290X,15,,hashrates.com
+AMD Radeon(TM) RX 560 Series /,Radeon RX 560,2.32,,hashrates.com
+AMD Radeon(TM) Vega 3 Graphics / 5 GB,,0.832,,hashrates.com
+GeForce GTX 1050 Ti / 4 GB,,15.6,,hashrates.com
+GeForce GTX 1060 3GB / 3 GB,GeForce GTX 1060 3GB,22.5,,hashrates.com
+GeForce GTX 1080 /,GeForce GTX 1080,26.4,,hashrates.com
+GeForce GTX 1660 / 4 GB,,29.5,,hashrates.com
+GeForce GTX 745 / 4 GB,,13.1,,hashrates.com
+GeForce GTX 970 / 4 GB,,40.2,,hashrates.com
+GeForce GTX 970M / 6 GB,,4.03,,hashrates.com
+GeForce GTX 980 / 4 GB,,31.1,,hashrates.com
+GeForce RTX 2060 SUPER / 4 GB,GeForce RTX 2060 Super,35.8,,hashrates.com
+GeForce RTX 2060 SUPER / 8 GB,GeForce RTX 2060 Super,35.9,,hashrates.com
+GeForce RTX 3080 / 10 GB,GeForce RTX 3080,48.5,,hashrates.com
+Microsoft Basic Display Adapter /,,14.9,,hashrates.com
+P106-100 /,,11.1,,hashrates.com
+P106-100 / 6 GB,,17.2,,hashrates.com
+Quadro K5000 / 4 GB,,6.68,,hashrates.com
+Quadro M4000 / 8 GB,Quadro M4000M,0.467,,hashrates.com
+Quadro P4000 / 8 GB,,26.1,,hashrates.com
+Radeon (TM) 530 / 4 GB,,4.96,,hashrates.com
+Radeon (TM) R7 M445 / 4 GB,Radeon R7 M445,6.43,,hashrates.com
+Radeon (TM) RX 470 Graphics /,Radeon RX 470,23.2,,hashrates.com
+Radeon RX 5500 XT / 4 GB,Radeon RX 5500 XT,6.6,,hashrates.com
+Radeon RX 560 Series /,Radeon RX 560,1.36,,hashrates.com
+Radeon RX 570 Series /,Radeon RX 570,4.82,,hashrates.com
+Radeon RX550/550 Series /,,9.23,,hashrates.com
+Radeon Vega Frontier Edition / 16 GB,,34.5,,hashrates.com
+Radeon(TM) RX 460 Graphics / 4 GB,Radeon RX 460,1.07,,hashrates.com
+Radeon(TM) RX 580 / 8 GB,Radeon RX 580,6.37,,hashrates.com
+Radeon(TM) RX580 / 4 GB,Radeon RX 580,14.9,,hashrates.com
+TITAN V / 12 GB,Nvidia Titan V,57.4,,hashrates.com
+AMD Radeon R9 Fury,Radeon R9 Fury,30,170,profit-mine.com
+AMD Radeon RX 470,Radeon RX 470,29,120,profit-mine.com
+AMD Radeon RX 480,Radeon RX 480M,31,135,profit-mine.com
+AMD Radeon RX 5500 XT,Radeon RX 5500 XT,26.3,65,profit-mine.com
+AMD Radeon RX 5600 XT,Radeon RX 5600 XT,42.5,94,profit-mine.com
+AMD Radeon RX 570,Radeon RX 570,30,120,profit-mine.com
+AMD Radeon RX 5700,Radeon RX 5700,55,140,profit-mine.com
+AMD Radeon RX 5700 XT,Radeon RX 5700 XT,55,140,profit-mine.com
+AMD Radeon RX 580,Radeon RX 580,32,135,profit-mine.com
+AMD Radeon RX 590,Radeon RX 590,33,150,profit-mine.com
+AMD Radeon RX 6800,Radeon RX 6800,65,170,profit-mine.com
+AMD Radeon RX 6800XT,Radeon RX 6800 XT,65,180,profit-mine.com
+AMD Radeon RX 6900 XT,Radeon RX 6900 XT,64,180,profit-mine.com
+AMD Radeon RX Vega 56,Radeon RX Vega 56,49,180,profit-mine.com
+AMD Radeon RX Vega 64,Radeon RX Vega 64,50,180,profit-mine.com
+AMD Radeon VII,Radeon VII,100,230,profit-mine.com
+Innosilicon A10 ETHMaster,Innosilicon A10 ETHMaster,485,850,profit-mine.com
+Innosilicon A10 PRO ETHMaster,Innosilicon A10 PRO ETHMaster,500,750,profit-mine.com
+Innosilicon A10 PRO+ ETHMiner,Innosilicon A10 PRO+ ETHMiner,720,1300,profit-mine.com
+Nvidia Geforce GTX 1050,GeForce GTX 1050 2GB,12,60,profit-mine.com
+Nvidia Geforce GTX 1050 Ti,GeForce GTX 1050 Ti,12,70,profit-mine.com
+Nvidia Geforce GTX 1060 6gb,GeForce GTX 1060 6GB,21,90,profit-mine.com
+Nvidia Geforce GTX 1070,GeForce GTX 1070,28,120,profit-mine.com
+Nvidia Geforce GTX 1070 Ti,GeForce GTX 1070 Ti,30,130,profit-mine.com
+Nvidia Geforce GTX 1080,GeForce GTX 1080,36,150,profit-mine.com
+Nvidia Geforce GTX 1080 Ti,GeForce GTX 1080 Ti,50,220,profit-mine.com
+Nvidia Geforce GTX 1650,GeForce GTX 1650,15,55,profit-mine.com
+Nvidia Geforce GTX 1650 Super,GeForce GTX 1650 Super,16.5,70,profit-mine.com
+Nvidia Geforce GTX 1660,GeForce GTX 1660,25,90,profit-mine.com
+Nvidia Geforce GTX 1660 Super,GeForce GTX 1660 Super,30,90,profit-mine.com
+Nvidia Geforce GTX 1660 Ti,GeForce GTX 1660 Ti,30,90,profit-mine.com
+Nvidia Geforce GTX TITAN Xp,Nvidia Titan Xp,52,174,profit-mine.com
+Nvidia Geforce RTX 2060,GeForce RTX 2060,27.6,130,profit-mine.com
+Nvidia Geforce RTX 2060 Super,GeForce RTX 2060 Super,42,140,profit-mine.com
+Nvidia Geforce RTX 2070,GeForce RTX 2070,42,140,profit-mine.com
+Nvidia Geforce RTX 2070 Super,GeForce RTX 2070 Super,42,140,profit-mine.com
+Nvidia Geforce RTX 2080,GeForce RTX 2080,42,150,profit-mine.com
+Nvidia Geforce RTX 2080 Super,GeForce RTX 2080 Super,44,150,profit-mine.com
+Nvidia Geforce RTX 2080 Ti,GeForce RTX 2080 Ti,52.5,220,profit-mine.com
+Nvidia Geforce RTX 3060,GeForce RTX 3060,25,130,profit-mine.com
+Nvidia Geforce RTX 3060 Ti,GeForce RTX 3060 Ti,63,130,profit-mine.com
+Nvidia Geforce RTX 3070,GeForce RTX 3070,63.7,135,profit-mine.com
+Nvidia Geforce RTX 3080,GeForce RTX 3080,95,240,profit-mine.com
+Nvidia Geforce RTX 3090,GeForce RTX 3090,122,350,profit-mine.com
+GeForce GTX 1060 6GB,GeForce GTX 1060 6GB,25,90,tomshardware.com
+GeForce GTX 1070,GeForce GTX 1070,28.2,114,tomshardware.com
+GeForce GTX 1080,GeForce GTX 1080,32.1,138,tomshardware.com
+GeForce GTX 1080 Ti,GeForce GTX 1080 Ti,44,197,tomshardware.com
+GeForce GTX 1660,GeForce GTX 1660,25.3,70,tomshardware.com
+GeForce GTX 1660 Super,GeForce GTX 1660 Super,30.2,75,tomshardware.com
+GeForce GTX 1660 Ti,GeForce GTX 1660 Ti,29.7,73,tomshardware.com
+GeForce RTX 2060,GeForce RTX 2060,33,125,tomshardware.com
+GeForce RTX 2060 Super,GeForce RTX 2060 Super,43.7,129,tomshardware.com
+GeForce RTX 2070,GeForce RTX 2070,43.8,130,tomshardware.com
+GeForce RTX 2070 Super,GeForce RTX 2070 Super,43.9,128,tomshardware.com
+GeForce RTX 2080,GeForce RTX 2080,43.8,129,tomshardware.com
+GeForce RTX 2080 Super,GeForce RTX 2080 Super,43.9,124,tomshardware.com
+GeForce RTX 2080 Ti,GeForce RTX 2080 Ti,60.1,180,tomshardware.com
+GeForce RTX 3060 Ti,GeForce RTX 3060 Ti,60.6,116,tomshardware.com
+GeForce RTX 3070,GeForce RTX 3070,61.3,123,tomshardware.com
+GeForce RTX 3080,GeForce RTX 3080,93.9,234,tomshardware.com
+GeForce RTX 3090,GeForce RTX 3090,106.5,279,tomshardware.com
+Radeon RX 5500 XT 8GB,Radeon RX 5500 XT,26.3,81,tomshardware.com
+Radeon RX 5600 XT,Radeon RX 5600 XT,39.6,115,tomshardware.com
+Radeon RX 5700,Radeon RX 5700,51.3,133,tomshardware.com
+Radeon RX 5700 XT,Radeon RX 5700 XT,51.8,119,tomshardware.com
+Radeon RX 580 8GB,Radeon RX 580,29,135,tomshardware.com
+Radeon RX 590,Radeon RX 590,28.6,130,tomshardware.com
+Radeon RX 6800,Radeon RX 6800,64.5,166,tomshardware.com
+Radeon RX 6800 XT,Radeon RX 6800 XT,64.6,186,tomshardware.com
+Radeon RX 6900 XT,Radeon RX 6900 XT,64.6,183,tomshardware.com
+Radeon RX Vega 56,Radeon RX Vega 56,39.2,174,tomshardware.com
+Radeon RX Vega 64,Radeon RX Vega 64,42.5,254,tomshardware.com
+Radeon VII,Radeon VII,83.6,231,tomshardware.com
+AMD Radeon R9 380,Radeon R9 380,19,140,whattomine.com
+GTX 1060,GeForce GTX 1060 3GB,22.5,90,whattomine.com
+GTX 1070,GeForce GTX 1070,30,130,whattomine.com
+GTX 1070 Ti,GeForce GTX 1070 Ti,30.5,130,whattomine.com
+GTX 1080,GeForce GTX 1080,34.5,170,whattomine.com
+GTX 1080 Ti,GeForce GTX 1080 Ti,45.5,180,whattomine.com
+GTX 1660,GeForce GTX 1660,20.5,90,whattomine.com
+GTX 1660 Ti,GeForce GTX 1660 Ti,25.7,90,whattomine.com
+Nvidia GTX 1050 Ti,GeForce GTX 1050 Ti,13,80,whattomine.com
+Radeon R9 Fury,Radeon R9 Fury,29,220,whattomine.com
+Radeon RX 470,Radeon RX 470,26,120,whattomine.com
+Radeon RX 480,Radeon RX 480,29.5,135,whattomine.com
+Radeon RX 570,Radeon RX 570,27.9,120,whattomine.com
+Radeon RX 5700XT,Radeon RX 5700 XT,51.5,140,whattomine.com
+Radeon RX 580,Radeon RX 580,30.2,125,whattomine.com
+Radeon RX Vega 56,Radeon RX Vega 56,36.5,180,whattomine.com
+Radeon RX Vega 64,Radeon RX Vega 64,40,200,whattomine.com
+Radeon VII,Radeon VII,78,230,whattomine.com
+RTX 2060,GeForce RTX 2060,27.6,130,whattomine.com
+RTX 2070,GeForce RTX 2070,36.9,150,whattomine.com
+RTX 2080,GeForce RTX 2080,36.9,190,whattomine.com
+RTX 2080 Ti,GeForce RTX 2080 Ti,52.5,220,whattomine.com
+AMD Radeon RX 470,Radeon RX 470,27,,2cryptocalc.com
+AMD Radeon RX 480,Radeon RX 480,29,,2cryptocalc.com
+AMD Radeon RX 570,Radeon RX 570,30,,2cryptocalc.com
+AMD Radeon RX 580,Radeon RX 580,30,,2cryptocalc.com
+AMD Radeon RX 590,Radeon RX 590,34,,2cryptocalc.com
+AMD Radeon Vega 56,Radeon Vega 56,43,,2cryptocalc.com
+AMD Radeon Vega 64,Radeon Vega 64,44,,2cryptocalc.com
+AMD Radeon VII,Radeon VII,90,,2cryptocalc.com
+AMD Radeon RX 5600XT,Radeon RX 5600XT,43,,2cryptocalc.com
+AMD Radeon RX 5700,Radeon RX 5700,54,,2cryptocalc.com
+AMD Radeon RX 6800XT,Radeon RX 6800XT,63,,2cryptocalc.com
+Nvidia GeForce GTX 1050 Ti,GeForce GTX 1050 Ti,14,,2cryptocalc.com
+Nvidia GeForce GTX 1060,GeForce GTX 1060,20.1,,2cryptocalc.com
+Nvidia GeForce GTX 1070,GeForce GTX 1070,28,,2cryptocalc.com
+Nvidia GeForce GTX 1070 Ti,GeForce GTX 1070 Ti,30,,2cryptocalc.com
+Nvidia P104-100,P104-100,37,,2cryptocalc.com
+Nvidia GeForce GTX 1080,GeForce GTX 1080,38,,2cryptocalc.com
+Nvidia GeForce GTX 1080 Ti,GeForce GTX 1080 Ti,45,,2cryptocalc.com
+Nvidia GeForce GTX 1660,GeForce GTX 1660,21,,2cryptocalc.com
+Nvidia GeForce GTX 1660 Super,GeForce GTX 1660 Super,30,,2cryptocalc.com
+Nvidia GeForce GTX 1660 Ti,GeForce GTX 1660 Ti,31.5,,2cryptocalc.com
+Nvidia GeForce RTX 2060,GeForce RTX 2060,31,,2cryptocalc.com
+Nvidia GeForce RTX 2060 Super,GeForce RTX 2060 Super,39,,2cryptocalc.com
+Nvidia GeForce RTX 2070,GeForce RTX 2070,39,,2cryptocalc.com
+Nvidia GeForce RTX 2070 Super,GeForce RTX 2070 Super,40,,2cryptocalc.com
+Nvidia GeForce RTX 2080,GeForce RTX 2080,42,,2cryptocalc.com
+Nvidia GeForce RTX 2080 Ti,GeForce RTX 2080 Ti,57,,2cryptocalc.com
+Nvidia GeForce RTX 3060,GeForce RTX 3060,48,,2cryptocalc.com
+Nvidia GeForce RTX 3060 Ti,GeForce RTX 3060 Ti,60,,2cryptocalc.com
+Nvidia GeForce RTX 3070,GeForce RTX 3070,60,,2cryptocalc.com
+Nvidia GeForce RTX 3080,GeForce RTX 3080,98,,2cryptocalc.com
+Nvidia GeForce RTX 3090,GeForce RTX 3090,120,,2cryptocalc.com
+Nvidia RTX 3090,GeForce RTX 3090,121.16,290,minerstat.com
+AMD Radeon VII,Radeon VII,104.6,195,minerstat.com
+Nvidia RTX 3080,GeForce RTX 3080,97.88,224,minerstat.com
+Nvidia CMP 90HX,,86,320,minerstat.com
+Nvidia RTX 3070,GeForce RTX 3070,61.79,117,minerstat.com
+Nvidia RTX 3060Ti,GeForce RTX 3060 Ti,60.21,120,minerstat.com
+AMD RX 6900 XT,Radeon RX 6900 XT,60.38,148,minerstat.com
+AMD RX 6800 XT,Radeon RX 6800 XT,59.44,145,minerstat.com
+Nvidia RTX 2080Ti,GeForce RTX 2080 Ti,59.21,150,minerstat.com
+AMD RX 6800,Radeon RX 6800,58.7,167,minerstat.com
+AMD RX 5700 XT,Radeon RX 5700 XT,54.28,91,minerstat.com
+AMD RX 5700,Radeon RX 5700,50.99,117,minerstat.com
+AMD RX Vega 64,Radeon RX Vega 64,49.25,170,minerstat.com
+AMD RX Vega 56,Radeon RX Vega 56,47.52,165,minerstat.com
+Nvidia Titan XP,Nvidia Titan Xp,49.02,252,minerstat.com
+Nvidia Tesla P100-PCIE-16GB,,44.85,138,minerstat.com
+Nvidia GTX 1080Ti,GeForce GTX 1080 Ti,45.68,210,minerstat.com
+Nvidia RTX 2080 Super,GeForce RTX 2080 Super,44.54,192,minerstat.com
+Nvidia P102-100,,44.55,220,minerstat.com
+Nvidia CMP 50HX,,45,250,minerstat.com
+AMD RX 5600 XT,Radeon RX 5600 XT,37.86,95,minerstat.com
+Nvidia RTX 2070 Super,GeForce RTX 2070 Super,37.09,114,minerstat.com
+Nvidia RTX 2080,GeForce RTX 2080,37.22,138,minerstat.com
+Nvidia RTX 2070,GeForce RTX 2070,36.76,123,minerstat.com
+Nvidia RTX 2060 Super,GeForce RTX 2060 Super,37.38,159,minerstat.com
+Nvidia GTX 1080,GeForce GTX 1080,36.16,128,minerstat.com
+Nvidia CMP 40HX,,36,185,minerstat.com
+AMD RX 580,Radeon RX 580,32.74,84,minerstat.com
+AMD RX 470,Radeon RX 470,31.57,70,minerstat.com
+Nvidia P104-100,,32.51,122,minerstat.com
+AMD RX 570,Radeon RX 570,31.31,80,minerstat.com
+AMD Vega Frontier Edition,Radeon Vega Frontier Edition,31.9,132,minerstat.com
+Nvidia GTX 1070Ti,GeForce GTX 1070 Ti,28.72,129,minerstat.com
+AMD RX 5500 XT,Radeon RX 5500 XT,25.8,55,minerstat.com
+Nvidia RTX 2060,GeForce RTX 2060,27.57,141,minerstat.com
+Nvidia GTX 1070,GeForce GTX 1070,26.84,135,minerstat.com
+Nvidia GTX 1660 Super,GeForce GTX 1660 Super,26.49,121,minerstat.com
+AMD RX 590,Radeon RX 590,27.31,163,minerstat.com
+AMD RX 480,Radeon RX 480,25.23,71,minerstat.com
+Nvidia GTX 1660Ti,GeForce GTX 1660 Ti,25.88,101,minerstat.com
+Nvidia CMP 30HX,,26,125,minerstat.com
+Nvidia RTX 3060,GeForce RTX 3060,25,100,minerstat.com
+Nvidia GTX 1660,GeForce GTX 1660,21.48,92,minerstat.com
+Nvidia P106-100,,21.3,106,minerstat.com
+Nvidia GTX 1060,GeForce GTX 1060,20.07,101,minerstat.com
+Nvidia GTX 1650,GeForce GTX 1650,13.2,54,minerstat.com
+AMD RX 460,Radeon RX 460,11.66,41,minerstat.com
+AMD RX 560,Radeon RX 560,10.27,45,minerstat.com
+Nvidia GTX 1050,GeForce GTX 1050,12.53,,minerstat.com
+Nvidia GTX 1050Ti,GeForce GTX 1050 Ti,15.98,,minerstat.com
+AMD RX 550,Radeon RX 550,11.97,,minerstat.com
+Nvidia Titan V,Nvidia Titan V,74.37,,minerstat.com
+Linzhi PhoenixEthash,,2600,3000,minerstat.com
+Innosilicon A11June 2021Ethash,,2100,2300,minerstat.com
+Innosilicon A10 Pro 6GBEthash,,720,1300,minerstat.com
+Innosilicon A10 ProEthash,,500,950,minerstat.com
+Innosilicon A10Ethash,,480,750,minerstat.com
+Antminer E3Ethash,,190,760,minerstat.com
