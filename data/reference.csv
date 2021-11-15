@@ -1,166 +1,186 @@
-Model,Release,Power (Watts)
-GeForce RTX 3060,"February 25, 2021",170
-GeForce RTX 3060 Ti,"December 2, 2020",200
-GeForce RTX 3070,"October 29, 2020",220
-GeForce RTX 3080,"September 17, 2020",320
-GeForce RTX 3090,"September 24, 2020",350
-GeForce RTX 2060,"January 15, 2019",160
-GeForce RTX 2060 TU104,"January 10, 2020",160
-GeForce RTX 2060 Super,"July 9, 2019",175
-GeForce RTX 2070,"October 17, 2018",175
-GeForce RTX 2070 Super,"July 9, 2019",215
-GeForce RTX 2080,"September 20, 2018",215
-GeForce RTX 2080 Super,"July 23, 2019",250
-GeForce RTX 2080 Ti,"September 27, 2018",250
-Nvidia Titan RTX,"December 18, 2018",280
-GeForce GT 1010,January 2021,30
-GeForce GT 1030 (DDR4),"March 12, 2018",20
-GeForce GT 1030,"May 17, 2017",30
-GeForce GTX 1050 2GB,"October 25, 2016",75
-GeForce GTX 1050 3GB,"May 21, 2018",75
-GeForce GTX 1050 Ti,"October 25, 2016",75
-GeForce GTX 1060 3GB,"August 18, 2016",120
-GeForce GTX 1060 5GB,"December 26, 2017",120
-GeForce GTX 1060 6GB,"July 19, 2016",120
-GeForce GTX 1060 6GB (GDDR5X),October 2018,120
-GeForce GTX 1070,"June 10, 2016",150
-GeForce GTX 1070 Ti,"November 2, 2017",180
-GeForce GTX 1080,"May 27, 2016",180
-GeForce GTX 1080 Ti,"March 10, 2017",250
-Nvidia Titan X,"August 2, 2016",250
-Nvidia Titan Xp,"April 6, 2017",250
-GeForce GTX 1650,"April 23, 2019",75
-GeForce GTX 1650 (GDDR6),"April 3, 2020",75
-GeForce GTX 1650 (TU106),"June 29, 2020",90
-GeForce GTX 1650 (TU116),"July 1, 2020",75
-GeForce GTX 1650 Super,"November 22, 2019",100
-GeForce GTX 1660,"March 14, 2019",120
-GeForce GTX 1660 Super,"October 29, 2019",125
-GeForce GTX 1660 Ti,"February 22, 2019",120
-Nvidia Titan V,"December 7, 2017",250
-Nvidia Quadro GV100,"March 27, 2018",250
-Quadro M4000M,2015-08-18,100
-Radeon R5 M330,2015,18
-Radeon R5 M335,2015,
-Radeon R7 M360,2015,
-Radeon R9 M365X,2015,50
-Radeon R9 M370X,May 2015,40
-Radeon R9 M375,2015,
-Radeon R9 M375X,2015,
-Radeon R9 M380,2015,
-Radeon R9 M385X,2015,75
-Radeon R9 M390,June 2015,100
-Radeon R9 M390X,2015,125
-Radeon R9 M395,2015,125
-Radeon R9 M395X,2015,125
-Radeon R5 M420,15 May 2016,20
-Radeon R5 M430,15 May 2016,18
-Radeon R7 M435,15 May 2016,20
-Radeon R7 M440,15 May 2016,20
-Radeon R7 M445,14 May 2016,20
-Radeon R7 M460,April 2016,
-Radeon RX 460,August 2016,35
-Radeon R7 M465,May 2016,
-Radeon R7 M465X,May 2016,
-Radeon R9 M470,May 2016,75
-Radeon R9 M470X,May 2016,75
-Radeon RX 470,August 2016,85
-Radeon R9 M485X,May 2016,100
-Radeon R5 220,"December 21, 2013",18
-Radeon R5 230,"April 3, 2014",19
-Radeon R5 235,"December 21, 2013",35
-Radeon R5 235X,"December 21, 2013",18
-Radeon R5 240,"November 1, 2013",30
-Radeon R7 240,"August 8, 2013",30
-Radeon R7 250,"August 8, 2013",75
-Radeon R7 250E,"December 21, 2013",55
-Radeon R7 250X,"February 10, 2014",95
-Radeon R7 260,"December 17, 2013",95
-Radeon R7 260X,"August 8, 2013",115
-Radeon R7 265,"February 13, 2014",150
-Radeon R9 270,"November 13, 2013",150
-Radeon R9 270X,"August 8, 2013",180
-Radeon R9 280,"March 4, 2014",250
-Radeon R9 280X,"August 8, 2013",250
-Radeon R9 285,"September 2, 2014",190
-Radeon R9 285X,,300
-Radeon R9 290,"November 5, 2013",250
-Radeon R9 290X,"October 24, 2013",250
-Radeon R9 295X2,"April 8, 2014",500
-Radeon R5 330,May 2015,30
-Radeon R5 340,May 2015,75
-Radeon R7 340,May 2015,75
-Radeon R5 340X,May 2015,30
-Radeon R7 350,May 2015,75
-Radeon R7 350,February 2016,75
-Radeon R7 350X,May 2015,30
-Radeon R7 360,June 2015,100
-Radeon R9 360,May 2015,85
-Radeon R7 370,June 2015,110
-Radeon R9 370,May 2015,150
-Radeon R9 370X,August 2015,185
-Radeon R9 380,May 2015,190
-Radeon R9 380,June 2015,190
-Radeon R9 380X,November 2015,190
-Radeon R9 390,June 2015,275
-Radeon R9 390X,June 2015,275
-Radeon R9 Fury,July 2015,275
-Radeon R9 Nano,August 2015,175
-Radeon R9 Fury X,June 2015,275
-Radeon Pro Duo,April 2016,350
-Radeon R5 430,June 2016,50
-Radeon R5 435,June 2016,50
-Radeon R7 430,June 2016,50
-Radeon R7 435,June 2016,50
-Radeon R7 450,June 2016,65
-Radeon RX 455,June 2016,100
-Radeon RX 460,August 2016,75
-Radeon RX 470D,October 2016,120
-Radeon RX 470,August 2016,120
-Radeon RX 480,June 2016,150
-Radeon 520,18 April 2017,50
-Radeon 530,18 April 2017,50
-Radeon 530X,18 April 2017,50
-Radeon RX 540,11 November 2017,50
-Radeon 540X,11 April 2018,50
-Radeon RX 550,2 July 2017,50
-Radeon 550X,11 April 2018,50
-Radeon RX 560,5 January 2017,55
-Radeon RX 560,5 January 2017,65
-Radeon RX 560X,9 January 2019,65
-Radeon RX 570,10 December 2017,85
-Radeon RX 580,18 April 2017,100
-Radeon RX 580X,11 April 2018,100
-Radeon RX 5300,"August 28, 2020",100
-Radeon RX 5300 XT,"October 7, 2019",100
-Radeon RX 5500,"October 7, 2019",150
-Radeon RX 5500 XT,"December 12, 2019",130
-Radeon RX 5600,"January 21, 2020",150
-Radeon RX 5600 XT,"January 21, 2020",160
-Radeon RX 5700,"July 7, 2019",180
-Radeon RX 5700 XT,"July 7, 2019",225
-Radeon RX 5700 XT 50th Anniversary Edition,"July 7, 2019",235
-Radeon RX 6700 XT,"March 18, 2021",230
-Radeon RX 6800,"November 18, 2020",250
-Radeon RX 6800 XT,"November 18, 2020",300
-Radeon RX 6900 XT,"December 8, 2020",300
-Radeon RX Vega 56,"August 28, 2017",210
-Radeon RX Vega 64,"August 14, 2017",295
-Radeon RX Vega 64 Liquid,"August 14, 2017",345
-Radeon VII,"February 7, 2019",300
-Radeon 520,"April 18, 2017",
-Radeon 530,"April 18, 2017",
-Radeon RX 540,"April 18, 2017",
-Radeon RX 550,"April 20, 2017",50
-Radeon RX 550X,"April 3, 2018",50
-Radeon RX 560D,July 2017,65
-Radeon RX 560,October 2017,60
-Radeon RX 560,May 2017,60
-Radeon RX 570,"April 18, 2017",150
-Radeon RX 580,"April 18, 2017",185
-Radeon RX 590 GME,"March 9, 2020",
-Radeon RX 590,"November 15, 2018",225
-Radeon Vega Frontier Edition,27 June 2017,300
-Innosilicon A10 PRO+ ETHMiner,December 2020,1350
-Innosilicon A10 PRO ETHMaster,May 2020,960
-Innosilicon A10 ETHMaster,September 2018,850
+Model,Release,Power (Watts),RAM
+GeForce RTX 3060,"February 25, 2021",170,12
+GeForce RTX 3060 Ti,"December 2, 2020",200,8
+GeForce RTX 3070,"October 29, 2020",220,8
+GeForce RTX 3070 Ti,"June 10, 2021",290,8
+GeForce RTX 3080,"September 17, 2020",320,10
+GeForce RTX 3080 Ti,"June 3, 2021",350,12
+GeForce RTX 3090,"September 24, 2020",350,24
+GeForce RTX 2060,"January 15, 2019",160,6
+GeForce RTX 2060 TU104,"January 10, 2020",160,6
+GeForce RTX 2060 Super,"July 9, 2019",175,8
+GeForce RTX 2070,"October 17, 2018",175,8
+GeForce RTX 2070 Super,"July 9, 2019",215,8
+GeForce RTX 2080,"September 20, 2018",215,8
+GeForce RTX 2080 Super,"July 23, 2019",250,8
+GeForce RTX 2080 Ti,"September 27, 2018",250,11
+Nvidia Titan RTX,"December 18, 2018",280,24
+GeForce GT 1010,January 2021,30,2
+GeForce GT 1030 (DDR4),"March 12, 2018",20,2
+GeForce GT 1030,"May 17, 2017",30,2
+GeForce GTX 1050 2GB,"October 25, 2016",75,2
+GeForce GTX 1050 3GB,"May 21, 2018",75,3
+GeForce GTX 1050 Ti,"October 25, 2016",75,4
+GeForce GTX 1060 3GB,"August 18, 2016",120,3
+GeForce GTX 1060 5GB,"December 26, 2017",120,5
+GeForce GTX 1060 6GB,"July 19, 2016",120,6
+GeForce GTX 1060 6GB (GDDR5X),October 2018,120,6
+GeForce GTX 1070,"June 10, 2016",150,8
+GeForce GTX 1070 Ti,"November 2, 2017",180,8
+GeForce GTX 1080,"May 27, 2016",180,8
+GeForce GTX 1080 Ti,"March 10, 2017",250,11
+Nvidia Titan X,"August 2, 2016",250,12
+Nvidia Titan Xp,"April 6, 2017",250,12
+GeForce GTX 1650,"April 23, 2019",75,4
+GeForce GTX 1650 (GDDR6),"April 3, 2020",75,4
+GeForce GTX 1650 (TU106),"June 29, 2020",90,4
+GeForce GTX 1650 (TU116),"July 1, 2020",75,4
+GeForce GTX 1650 Super,"November 22, 2019",100,4
+GeForce GTX 1660,"March 14, 2019",120,6
+GeForce GTX 1660 Super,"October 29, 2019",125,6
+GeForce GTX 1660 Ti,"February 22, 2019",120,6
+Nvidia Titan V,"December 7, 2017",250,12
+Nvidia Quadro GV100,"March 27, 2018",250,32
+Quadro M4000M,2015-08-18,100,4
+Radeon R5 M330,2015,18,
+Radeon R5 M335,2015,,
+Radeon R7 M360,2015,,
+Radeon R9 M365X,2015,50,
+Radeon R9 M370X,May 2015,40,
+Radeon R9 M375,2015,,
+Radeon R9 M375X,2015,,
+Radeon R9 M380,2015,,
+Radeon R9 M385X,2015,75,
+Radeon R9 M390,June 2015,100,
+Radeon R9 M390X,2015,125,
+Radeon R9 M395,2015,125,
+Radeon R9 M395X,2015,125,
+Radeon R5 M420,15 May 2016,20,
+Radeon R5 M430,15 May 2016,18,
+Radeon R7 M435,15 May 2016,20,
+Radeon R7 M440,15 May 2016,20,
+Radeon R7 M445,14 May 2016,20,
+Radeon R7 M460,April 2016,,
+Radeon RX 460,August 2016,35,
+Radeon R7 M465,May 2016,,
+Radeon R7 M465X,May 2016,,
+Radeon R9 M470,May 2016,75,
+Radeon R9 M470X,May 2016,75,
+Radeon RX 470,August 2016,85,
+Radeon R9 M485X,May 2016,100,
+Radeon R5 220,"December 21, 2013",18,
+Radeon R5 230,"April 3, 2014",19,
+Radeon R5 235,"December 21, 2013",35,
+Radeon R5 235X,"December 21, 2013",18,
+Radeon R5 240,"November 1, 2013",30,
+Radeon R7 240,"August 8, 2013",30,
+Radeon R7 250,"August 8, 2013",75,
+Radeon R7 250E,"December 21, 2013",55,
+Radeon R7 250X,"February 10, 2014",95,
+Radeon R7 260,"December 17, 2013",95,
+Radeon R7 260X,"August 8, 2013",115,
+Radeon R7 265,"February 13, 2014",150,
+Radeon R9 270,"November 13, 2013",150,
+Radeon R9 270X,"August 8, 2013",180,
+Radeon R9 280,"March 4, 2014",250,
+Radeon R9 280X,"August 8, 2013",250,
+Radeon R9 285,"September 2, 2014",190,
+Radeon R9 285X,,300,
+Radeon R9 290,"November 5, 2013",250,
+Radeon R9 290X,"October 24, 2013",250,
+Radeon R9 295X2,"April 8, 2014",500,
+Radeon R5 330,May 2015,30,
+Radeon R5 340,May 2015,75,
+Radeon R7 340,May 2015,75,
+Radeon R5 340X,May 2015,30,
+Radeon R7 350,May 2015,75,
+Radeon R7 350,February 2016,75,
+Radeon R7 350X,May 2015,30,
+Radeon R7 360,June 2015,100,
+Radeon R9 360,May 2015,85,
+Radeon R7 370,June 2015,110,
+Radeon R9 370,May 2015,150,
+Radeon R9 370X,August 2015,185,
+Radeon R9 380,May 2015,190,
+Radeon R9 380,June 2015,190,
+Radeon R9 380X,November 2015,190,
+Radeon R9 390,June 2015,275,
+Radeon R9 390X,June 2015,275,
+Radeon R9 Fury,July 2015,275,
+Radeon R9 Nano,August 2015,175,
+Radeon R9 Fury X,June 2015,275,
+Radeon Pro Duo,April 2016,350,
+Radeon R5 430,June 2016,50,
+Radeon R5 435,June 2016,50,
+Radeon R7 430,June 2016,50,
+Radeon R7 435,June 2016,50,
+Radeon R7 450,June 2016,65,
+Radeon RX 455,June 2016,100,
+Radeon RX 460,August 2016,75,
+Radeon RX 470D,October 2016,120,
+Radeon RX 470,August 2016,120,
+Radeon RX 480,June 2016,150,
+Radeon 520,18 April 2017,50,
+Radeon 530,18 April 2017,50,
+Radeon 530X,18 April 2017,50,
+Radeon RX 540,11 November 2017,50,
+Radeon 540X,11 April 2018,50,
+Radeon RX 550,2 July 2017,50,
+Radeon 550X,11 April 2018,50,
+Radeon RX 560,5 January 2017,55,
+Radeon RX 560,5 January 2017,65,
+Radeon RX 560X,9 January 2019,65,
+Radeon RX 570,10 December 2017,85,
+Radeon RX 580,18 April 2017,100,
+Radeon RX 580X,11 April 2018,100,
+Radeon RX 5300,"August 28, 2020",100,
+Radeon RX 5300 XT,"October 7, 2019",100,
+Radeon RX 5500,"October 7, 2019",150,
+Radeon RX 5500 XT,"December 12, 2019",130,
+Radeon RX 5600,"January 21, 2020",150,
+Radeon RX 5600 XT,"January 21, 2020",160,
+Radeon RX 5700,"July 7, 2019",180,
+Radeon RX 5700 XT,"July 7, 2019",225,
+Radeon RX 5700 XT 50th Anniversary Edition,"July 7, 2019",235,
+Radeon RX 6700 XT,"March 18, 2021",230,
+Radeon RX 6800,"November 18, 2020",250,
+Radeon RX 6800 XT,"November 18, 2020",300,
+Radeon RX 6900 XT,"December 8, 2020",300,
+Radeon RX 6600,"October 13, 2021",132,8
+Radeon RX 6600 XT,"August 11, 2021",160,8
+Radeon RX Vega 56,"August 28, 2017",210,
+Radeon RX Vega 64,"August 14, 2017",295,
+Radeon RX Vega 64 Liquid,"August 14, 2017",345,
+Radeon VII,"February 7, 2019",300,
+Radeon 520,"April 18, 2017",,
+Radeon 530,"April 18, 2017",,
+Radeon RX 540,"April 18, 2017",,
+Radeon RX 550,"April 20, 2017",50,
+Radeon RX 550X,"April 3, 2018",50,
+Radeon RX 560D,July 2017,65,
+Radeon RX 560,October 2017,60,
+Radeon RX 560,May 2017,60,
+Radeon RX 570,"April 18, 2017",150,
+Radeon RX 580,"April 18, 2017",185,
+Radeon RX 590 GME,"March 9, 2020",,
+Radeon RX 590,"November 15, 2018",225,
+Radeon Vega Frontier Edition,27 June 2017,300,
+Innosilicon A10 PRO+ ETHMiner,December 2020,1350,
+Innosilicon A10 PRO ETHMaster,May 2020,960,
+Innosilicon A10 ETHMaster,September 2018,850,
+P102-100,"February 12, 2018",250,5
+P104-100,"December 12, 2017",150,4
+P106-100,"June 19, 2017",120,6
+Linzhi Phoenix,January 2021,3000,8
+CMP 30HX,"February 25, 2021",125,6
+CMP 40HX,"February 25, 2021",185,8
+CMP 50HX,"June 24, 2021",250,10
+CMP 90HX,"July 28, 2021",320,10
+CMP 170HX,"September 1, 2021",250,16
+Nvidia A40,"October 5, 2020",300,48
+Nvidia A100,"May 14, 2020",250,40
+Nvidia P40,"September 13, 2016",250,24
+Nvidia T4,"September 12, 2018",70,16
+Nvidia RTX A2000,"August 10, 2021",70,6
+Nvidia RTX A5000,"April 12, 2021",230,24
+Quadro RTX 8000,"August 13, 2018",295,48

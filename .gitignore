@@ -3,3 +3,4 @@ output
 .ipynb_checkpoints
 utils
 download-urls.py
+__pycache__
