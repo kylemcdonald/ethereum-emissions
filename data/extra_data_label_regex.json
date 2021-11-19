@@ -1,0 +1,20 @@
+{
+    "hz": "china",
+    "(^|\\W)ru": "russia",
+    "cn": "china",
+    "sg": "singapore",
+    "sz": "china",
+    "zj": "china",
+    "us-e": "us-east",
+    "us-w": "us-west",
+    "(^|\\W)us": "us",
+    "usa": "us",
+    "eu(rope)?-n": "europe-north",
+    "eu(rope)?-w": "europe-west",
+    "seo": "seoul",
+    "sing": "singapore",
+    "(^|\\W)tw": "taiwan",
+    "(^|[^r])eu": "europe",
+    "(^|\\W)ua": "ukraine",
+    "asia": "asia"
+}

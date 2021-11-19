@@ -1,7 +1,8 @@
-from fast_web3 import FastWeb3
-from block_index import BlockIndex
 from utils.itertools import chunks
 import time
+
+from fast_web3 import FastWeb3
+from block_index import BlockIndex
 
 chunk_size = 100
 web3 = FastWeb3()

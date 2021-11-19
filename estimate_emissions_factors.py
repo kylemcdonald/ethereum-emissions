@@ -1,16 +1,15 @@
-from tqdm import tqdm
-from results import Results
-results = Results()
-
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
+import datetime
+from collections import defaultdict
 
 from block_index import BlockIndex
 from block_classifier import BlockClassifier
+from results import Results
+results = Results()
 
-import datetime
-from collections import defaultdict
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
 
 plt.rcParams['font.size'] = 20
 
@@ -195,7 +194,7 @@ for date, dist in region_distribution.items():
     for region, count in dist.items():
         region_distribution_collapsed[date][collapse_map[region]] += count
 
-region_distribution_normalized = normalize_row_to_one(pd.DataFrame(region_distribution).T).sort_index()
+region_distribution_normalized = normalize_row_to_one(pd.DataFrame(region_distribution_collapsed).T).sort_index()
 dates = region_distribution_normalized.index.values
 labels = region_distribution_normalized.columns.values
 data = region_distribution_normalized.values

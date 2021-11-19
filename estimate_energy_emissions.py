@@ -1,15 +1,37 @@
 import numpy as np
 import datetime
 import pandas as pd
-import matplotlib.pyplot as plt
 from collections import defaultdict
+
 from save_plot import SavePlot
 
-plt.rcParams['font.size'] = 20
-
 # from GPU Efficiency notebook
-z = (1.3724361063410362e-09, -1.8072657791038405)
-mae = 0.07921742610595504
+z = (1.3744496623898123e-09, -1.81046377784513)
+mae = 0.07911432750414212
+
+params = {
+    'lower': { # best case scenario
+        'hashing_efficiency_offset': 0.08,
+        'datacenter_overhead': 1.01,
+        'hardware_overhead': 1.01,
+        'grid_loss': 1.05,
+        'psu_efficiency': 0.95
+    },
+    'best': { # best guess
+        'hashing_efficiency_offset': 0,
+        'datacenter_overhead': 1.10,
+        'hardware_overhead': 1.03,
+        'grid_loss': 1.06,
+        'psu_efficiency': 0.90
+    },
+    'upper': { # worst case scenario
+        'hashing_efficiency_offset': -0.08,
+        'datacenter_overhead': 1.1,
+        'hardware_overhead': 1.06,
+        'grid_loss': 1.07,
+        'psu_efficiency': 0.80
+    }
+}
 
 def to_date(date_str):
     return pd.to_datetime(date_str).date()
@@ -45,30 +67,6 @@ def compute_instant_power(
     instant = (hashrate * datacenter_overhead * hardware_overhead * grid_loss) / \
         (hashing_efficiency * psu_efficiency)
     return instant
-
-params = {
-    'lower': { # best case scenario
-        'hashing_efficiency_offset': 0.08,
-        'datacenter_overhead': 1.01,
-        'hardware_overhead': 1.03,
-        'grid_loss': 1.05,
-        'psu_efficiency': 0.95
-    },
-    'best': { # best guess
-        'hashing_efficiency_offset': 0,
-        'datacenter_overhead': 1.10,
-        'hardware_overhead': 1.03,
-        'grid_loss': 1.06,
-        'psu_efficiency': 0.90
-    },
-    'upper': { # worst case scenario
-        'hashing_efficiency_offset': -0.08,
-        'datacenter_overhead': 1.1,
-        'hardware_overhead': 1.08,
-        'grid_loss': 1.07,
-        'psu_efficiency': 0.80
-    }
-}
 
 def gw_ef_to_daily_ktco2(daily_gw, ef):
     daily_kwh = daily_gw * 24 * 1e6
@@ -117,6 +115,9 @@ def convert_daily_gigawatts_to_twh(daily_gigawatts):
 
 # this is the part we do for the article, should be separated out
 import datetime
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.size'] = 20
 
 def plot_annual(results, ylabel, label=None):
     fig = plt.figure(figsize=(20,6), facecolor='white')
@@ -164,23 +165,32 @@ gallersdoerfer_2020_3_27_twh = 6.299
 gallersdoerfer_2020_3_27_gw = convert_twh_per_year_to_gigawatts(gallersdoerfer_2020_3_27_twh)
 gallersdoerfer_dates = [datetime.datetime(2020, 3, 27).date()]
 gallersdoerfer_estimate = [gallersdoerfer_2020_3_27_gw]
-plt.scatter(gallersdoerfer_dates, gallersdoerfer_estimate, label='Gallersdörfer', lw=2, marker='*', color='k', s=200)
+plt.scatter(gallersdoerfer_dates, gallersdoerfer_estimate, label='Gallersdörfer', lw=2, marker='*', color='yellow', edgecolors='k', s=500, clip_on=False)
 
 saver.add(gallersdoerfer_dates, gallersdoerfer_estimate, 'Gallersdörfer GW')
+
+ax = plt.gca().secondary_yaxis('right')
+twh_labels = np.linspace(0,50,11).astype(int)
+twh_in_gw = convert_twh_per_year_to_gigawatts(twh_labels)
+ax.set_yticks(twh_in_gw, labels=twh_labels)
+ax.set_ylabel('Terawatt hours/year')
 
 plt.legend()
 plt.savefig('overleaf/images/power.png', bbox_inches='tight')
 plt.close(fig)
 
 # plot emissions
+def mkdate(y,m,d):
+    return datetime.datetime(y,m,d).date()
+
+def convert_mtco2_per_year_to_daily_ktco2(mtco2):
+    return (mtco2 / 365) * 1e3
+
 fig = plot_annual(emissions_results, 'ktCO$_2$/day', 'This study')
 
 for e in ['best','lower','upper']:
     saver.add(dates, power_results[e], f'McDonald ktCO2/day {e}')
-
-def mkdate(y,m,d):
-    return datetime.datetime(y,m,d).date()
-
+    
 plt.plot(digi_dates, gw_ef_to_daily_ktco2(digi_estimate, 475), lw=2, label='De Vries estimate', linestyle='dotted')
 plt.plot(digi_dates, gw_ef_to_daily_ktco2(digi_minimum, 475), lw=2, label='De Vries minimum', linestyle='dotted')
 
@@ -193,12 +203,18 @@ plt.plot(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 914), lw=2, labe
 saver.add(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 193), 'Krause ktCO2/day lower')
 saver.add(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 914), 'Krause ktCO2/day upper')
 
+ax = plt.gca().secondary_yaxis('right')
+mtco2_labels = np.linspace(0,20,11).astype(int)
+mtco2_in_ktco2 = convert_mtco2_per_year_to_daily_ktco2(mtco2_labels)
+ax.set_yticks(mtco2_in_ktco2, labels=mtco2_labels)
+ax.set_ylabel('Megatons CO$_2$/year')
+
 plt.legend()
 plt.savefig('overleaf/images/emissions.png', bbox_inches='tight')
 plt.close(fig)
 
 # plot emissions factors
-plt.figure(figsize=(20,6), facecolor='white')
+fig = plt.figure(figsize=(20,6), facecolor='white')
 for year in range(2016, 2022):
     plt.axvline(datetime.datetime(year,1,1), color='k', lw=1, linestyle='--')
 plt.plot(dates, [factors[e] for e in dates])
@@ -206,8 +222,7 @@ plt.xlim(dates[0], dates[-1])
 plt.ylim(350, 550)
 plt.ylabel('gCO$_2$/kWh')
 plt.savefig('overleaf/images/emissions-factors.png', bbox_inches='tight')
-plt.show()
-
+plt.close(fig)
 
 saver.add(dates, [factors[e] for e in dates], 'gCO2/kWh')
 

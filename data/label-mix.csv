@@ -1,14 +1,14 @@
-label,Asia,Singapore,Taiwan,South Korea,China,China (Northwest),China (South),Europe,Sweden,Netherlands,Germany,Russia,Ukraine,United States,West Virginia,Washington
+label,Asia,Singapore,Taiwan,South Korea,China,China (Northwest),China (South),Europe,Sweden,Netherlands,Germany,Russia,Ukraine,United States,United States (East),United States (West)
 asia,10,2,1,3,16,32,32,,,,,,,,,
 singapore,,1,,,,,,,,,,,,,,
 taiwan,,,1,,,,,,,,,,,,,
 seoul,,,,1,,,,,,,,,,,,
 china,,,,,1,2,2,,,,,,,,,
-europe,,,,,,,,1,2,2,2,,,,,
-europe-north,,,,,,,,1,2,,1,,,,,
-europe-west,,,,,,,,1,,2,1,,,,,
+europe,,,,,,,,2,6,2,1,,,,,
+europe-west,,,,,,,,2,,6,1,,,,,
+europe-north,,,,,,,,2,6,,1,,,,,
 russia,,,,,,,,,,,,3,1,,,
 ukraine,,,,,,,,,,,,1,3,,,
-us,,,,,,,,,,,,,,1,2,1
-us-east,,,,,,,,,,,,,,1,2,
-us-west,,,,,,,,,,,,,,1,,2
+us,,,,,,,,,,,,,,2,5,3
+us-east,,,,,,,,,,,,,,1,4,
+us-west,,,,,,,,,,,,,,1,,4
