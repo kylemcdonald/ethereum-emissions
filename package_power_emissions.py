@@ -2,104 +2,17 @@ import numpy as np
 import datetime
 import pandas as pd
 from collections import defaultdict
-
-# from GPU Efficiency notebook
-z = (1.3744496623898123e-09, -1.81046377784513)
-mae = 0.07911432750414212
-
-with open('input/power-parameters.json') as f:
-    params = json.load(f)
-
-def to_date(date_str):
-    return pd.to_datetime(date_str).date()
-    
-def date_to_timestamp(e):
-    return datetime.datetime.timestamp(datetime.datetime(e.year, e.month, e.day))
-
-def timestamp_to_date(e):
-    return datetime.datetime.fromtimestamp(e).date()
-
-def efficiency_at_date(date):
-    return efficiency_at_timestamp(date_to_timestamp(date))
-
-def efficiency_at_timestamp(timestamp):
-    return timestamp * z[0] + z[1]
-
-dates, factors = zip(*pd.read_csv('output/emissions-factors.csv').values)
-dates = [pd.to_datetime(e).date() for e in dates]
-factors = dict(zip(dates, factors))
-
-hashrate_history = pd.read_csv('input/hashrate.csv')[['Date(UTC)', 'Value']].values
-
-# compute the power from the perspective of the utility provider
-def compute_instant_power(
-    hashrate, # ethereum network hashrate (megahashes per second)
-    hashing_efficiency, # average hasing efficiency (megahashes per second per watt)
-    hashing_efficiency_offset, # offset from mean hashing efficiency (megahashes per second per watt)
-    datacenter_overhead,
-    hardware_overhead,
-    grid_loss,
-    psu_efficiency):
-    hashing_efficiency += hashing_efficiency_offset
-    instant = (hashrate * datacenter_overhead * hardware_overhead * grid_loss) / \
-        (hashing_efficiency * psu_efficiency)
-    return instant
-
-def gw_ef_to_daily_ktco2(daily_gw, ef):
-    daily_kwh = daily_gw * 24 * 1e6
-    daily_gco2 = daily_kwh * ef
-    daily_ktco2 = daily_gco2 / 1e9
-    return daily_ktco2
-
-dates = []
-power_results = defaultdict(list)
-emissions_results = defaultdict(list)
-for date, hashrate_gh in hashrate_history:
-    hashrate_mh = hashrate_gh * 1000
-    date = to_date(date)
-    hashing_efficiency = efficiency_at_date(date)
-    
-    for k,v in params.items():
-        instant_power_watts = compute_instant_power(hashrate_mh, hashing_efficiency, **v)
-        instant_power_gigawatts = instant_power_watts / 1e9
-        power_results[k].append(instant_power_gigawatts)
-        
-        daily_emissions_kilotons = gw_ef_to_daily_ktco2(instant_power_gigawatts, factors[date])
-        emissions_results[k].append(daily_emissions_kilotons)
-    
-    dates.append(date)
-
-# save for future use
-pd.DataFrame((dates, power_results['best'])).T.to_csv('output/power.csv', index=False, header=['Date', 'Gigawatts'])
-pd.DataFrame((dates, emissions_results['best'])).T.to_csv('output/emissions.csv', index=False, header=['Date', 'ktCO2e/day'])
-
-###
-
-from save_plot import SavePlot
-def timestamp_to_date(e):
-    return datetime.datetime.fromtimestamp(e).date()
-
-def convert_gigawatts_to_twh_per_year(gigawatts):
-    gigawatt_hours_per_day = gigawatts * 24
-    gigawatt_hours_per_year = gigawatt_hours_per_day * 365
-    terawatt_hours_per_year = gigawatt_hours_per_year / 1e3
-    return terawatt_hours_per_year
-
-def convert_twh_per_year_to_gigawatts(terawatt_hours_per_year):
-    gigawatt_hours_per_year = terawatt_hours_per_year * 1e3
-    gigawatt_hours_per_day = gigawatt_hours_per_year / 365
-    gigawatts = gigawatt_hours_per_day / 24
-    return gigawatts
-
-def convert_daily_gigawatts_to_twh(daily_gigawatts):
-    gigawatt_hours = sum(daily_gigawatts) * 24
-    terawatt_hours = gigawatt_hours / 1e3
-    return terawatt_hours
-
-# this is the part we do for the article, should be separated out
-import datetime
+from results import Results
+from emissions_utils import read_csv_date,\
+    efficiency_at_date,\
+    convert_gw_and_ef_to_daily_ktco2,\
+    convert_gigawatts_to_twh_per_year,\
+    convert_twh_per_year_to_gigawatts,\
+    convert_daily_gigawatts_to_twh,\
+    convert_mtco2_per_year_to_daily_ktco2,\
+    mkdate,\
+    date_in_range
 import matplotlib.pyplot as plt
-
 plt.rcParams['font.size'] = 20
 
 def plot_annual(results, ylabel, label=None):
@@ -107,24 +20,23 @@ def plot_annual(results, ylabel, label=None):
     for year in range(2016, 2022):
         plt.axvline(datetime.datetime(year,1,1), color='k', lw=1, linestyle='--')
     plt.plot(dates, results['best'], lw=2, label=label)
-    
-    lw = 1
-    alpha = 0.25
-    color = 'gray'
-    plt.fill_between(dates, results['lower'], results['upper'], alpha=alpha)
+    plt.fill_between(dates, results['lower'], results['upper'], alpha=0.25)
     plt.ylabel(ylabel)    
     plt.ylim(0)    
     plt.xlim(min(dates), max(dates))
-    
     return fig
-    
-saver = SavePlot()
+
+# load data from previous run
+df = read_csv_date('output/emissions-factors.csv')
+factors = {k.date():v for k,(v,) in df.iterrows()}
+df = read_csv_date('output/daily-gw.csv')
+power_results = dict(zip(df.columns, df.T.values))
+df = read_csv_date('output/daily-ktco2.csv')
+emissions_results = dict(zip(df.columns, df.T.values))
+dates = [e.date() for e in df.index]
 
 # plot energy
 fig = plot_annual(power_results, 'Gigawatts', 'This study')
-
-for e in ['best','lower','upper']:
-    saver.add(dates, power_results[e], f'McDonald GW {e}')
 
 digi_energy = pd.read_csv('other-studies/digiconomist-energy.csv')
 digi_dates = [e.date() for e in pd.to_datetime(digi_energy['Date'])]
@@ -133,24 +45,17 @@ digi_minimum = convert_twh_per_year_to_gigawatts(digi_energy['Minimum TWh per Ye
 plt.plot(digi_dates, digi_estimate, lw=2, label='De Vries estimate', linestyle='dotted')
 plt.plot(digi_dates, digi_minimum, lw=2, label='De Vries minimum', linestyle='dotted')
 
-saver.add(digi_dates, digi_estimate, 'De Vries GW estimate')
-saver.add(digi_dates, digi_minimum, 'De Vries GW minimum')
-
 krause = pd.read_csv('other-studies/krause-tolaymat.csv')
 krause_dates = [e.date() for e in pd.to_datetime(krause['Date'])]
 krause_estimate_mw = krause['MW'].values
 krause_estimate_gw = krause_estimate_mw / 1e3
 plt.plot(krause_dates, krause_estimate_gw, label='Krause', lw=2, linestyle=(0,(8,4)))
 
-saver.add(krause_dates, krause_estimate_gw, 'Krause GW')
-
 gallersdoerfer_2020_3_27_twh = 6.299
 gallersdoerfer_2020_3_27_gw = convert_twh_per_year_to_gigawatts(gallersdoerfer_2020_3_27_twh)
 gallersdoerfer_dates = [datetime.datetime(2020, 3, 27).date()]
 gallersdoerfer_estimate = [gallersdoerfer_2020_3_27_gw]
 plt.scatter(gallersdoerfer_dates, gallersdoerfer_estimate, label='Gallersdörfer', lw=2, marker='*', color='yellow', edgecolors='k', s=500, clip_on=False)
-
-saver.add(gallersdoerfer_dates, gallersdoerfer_estimate, 'Gallersdörfer GW')
 
 ax = plt.gca().secondary_yaxis('right')
 twh_labels = np.linspace(0,50,11).astype(int)
@@ -159,32 +64,17 @@ ax.set_yticks(twh_in_gw, labels=twh_labels)
 ax.set_ylabel('Terawatt hours/year')
 
 plt.legend()
-plt.savefig('overleaf/images/power.png', bbox_inches='tight')
+plt.savefig('article/images/power.png', bbox_inches='tight')
 plt.close(fig)
 
 # plot emissions
-def mkdate(y,m,d):
-    return datetime.datetime(y,m,d).date()
-
-def convert_mtco2_per_year_to_daily_ktco2(mtco2):
-    return (mtco2 / 365) * 1e3
-
 fig = plot_annual(emissions_results, 'ktCO$_2$/day', 'This study')
 
-for e in ['best','lower','upper']:
-    saver.add(dates, power_results[e], f'McDonald ktCO2/day {e}')
-    
-plt.plot(digi_dates, gw_ef_to_daily_ktco2(digi_estimate, 475), lw=2, label='De Vries estimate', linestyle='dotted')
-plt.plot(digi_dates, gw_ef_to_daily_ktco2(digi_minimum, 475), lw=2, label='De Vries minimum', linestyle='dotted')
+plt.plot(digi_dates, convert_gw_and_ef_to_daily_ktco2(digi_estimate, 475), lw=2, label='De Vries estimate', linestyle='dotted')
+plt.plot(digi_dates, convert_gw_and_ef_to_daily_ktco2(digi_minimum, 475), lw=2, label='De Vries minimum', linestyle='dotted')
 
-saver.add(digi_dates, gw_ef_to_daily_ktco2(digi_estimate, 475), 'De Vries ktCO2/day estimate')
-saver.add(digi_dates, gw_ef_to_daily_ktco2(digi_minimum, 475), 'De Vries ktCO2/day minimum')
-
-plt.plot(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 193), lw=2, label='Krause lower', linestyle=(0,(8,4)))
-plt.plot(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 914), lw=2, label='Krause upper', linestyle=(0,(8,4)))
-
-saver.add(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 193), 'Krause ktCO2/day lower')
-saver.add(krause_dates, gw_ef_to_daily_ktco2(krause_estimate_gw, 914), 'Krause ktCO2/day upper')
+plt.plot(krause_dates, convert_gw_and_ef_to_daily_ktco2(krause_estimate_gw, 193), lw=2, label='Krause lower', linestyle=(0,(8,4)))
+plt.plot(krause_dates, convert_gw_and_ef_to_daily_ktco2(krause_estimate_gw, 914), lw=2, label='Krause upper', linestyle=(0,(8,4)))
 
 ax = plt.gca().secondary_yaxis('right')
 mtco2_labels = np.linspace(0,20,11).astype(int)
@@ -194,7 +84,7 @@ ax.set_ylabel('Megatons CO$_2$/year')
 
 plt.ylim(0,35)
 plt.legend()
-plt.savefig('overleaf/images/emissions.png', bbox_inches='tight')
+plt.savefig('article/images/emissions.png', bbox_inches='tight')
 plt.close(fig)
 
 # plot emissions factors
@@ -203,20 +93,12 @@ for year in range(2016, 2022):
     plt.axvline(datetime.datetime(year,1,1), color='k', lw=1, linestyle='--')
 plt.plot(dates, [factors[e] for e in dates])
 plt.xlim(dates[0], dates[-1])
-# plt.ylim(350, 550)
 plt.ylim(200, 400)
 plt.ylabel('gCO$_2$/kWh')
-plt.savefig('overleaf/images/emissions-factors.png', bbox_inches='tight')
+plt.savefig('article/images/emissions-factors.png', bbox_inches='tight')
 plt.close(fig)
 
-saver.add(dates, [factors[e] for e in dates], 'gCO2/kWh')
-
-# update all results
-from results import Results
 results = Results()
-
-def date_in_range(x, begin, end):
-    return begin <= x and x <= end
 
 def emissions_kt_on_date(date):
     for d,e in zip(dates, emissions_results['best']):
@@ -321,12 +203,10 @@ marro_equivalent = cumulative_emissions_kt_to_date(marro_dates[1]) - cumulative_
 marro_equivalent /= (marro_dates[1] - marro_dates[0]).days
 results['marro_equivalent'] = f'\ktcotwo{{{marro_equivalent:.1f}}}'
 
-eff_at_start = efficiency_at_timestamp(datetime.datetime.combine(dates[0], datetime.time()).timestamp())
-eff_at_end = efficiency_at_timestamp(datetime.datetime.combine(dates[-1], datetime.time()).timestamp())
+eff_at_start = efficiency_at_date(dates[0])
+eff_at_end = efficiency_at_date(dates[-1])
 results['eff_at_start'] = f'\eff{{{eff_at_start:0.2f}}}'
 results['eff_at_end'] = f'\eff{{{eff_at_end:0.2f}}}'
 results['eff_end_date'] = f'{dates[-1]}'
 
 results.write()
-
-saver.write('output/power-and-emissions.csv')

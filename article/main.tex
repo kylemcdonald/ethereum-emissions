@@ -1,0 +1,79 @@
+\documentclass[twocolumn]{article}
+% \documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{bold-extra}
+\usepackage{eurosym}
+\usepackage{siunitx}
+\usepackage{datatool}
+\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage{ifdraft}
+\usepackage{xcolor}
+\usepackage{datetime}
+\usepackage{mathtools}
+\usepackage{texdate}
+\usepackage{chngcntr}
+\usepackage{xurl} % break urls anywhere
+\usepackage[title]{appendix}
+
+\addbibresource{references.bib}
+
+\graphicspath{ {./images/} }
+\geometry{letterpaper}
+
+\DeclareSIUnit\hash{H}
+\DeclareSIUnit\ton{t}
+\DeclareSIUnit\year{year}
+\DeclareSIUnit\TWh{\tera\watt\hour}
+\DeclareSIUnit\EUR{\text{\euro}}
+
+\newcommand{\COtwo}{CO\textsubscript{2}}
+\newcommand{\COtwoe}{CO\textsubscript{2}e}
+\newcommand{\mtcotwo}[1]{\SI{#1}{\mega\ton\COtwo}}
+\newcommand{\ktcotwo}[1]{\SI{#1}{\kilo\ton\COtwo}}
+\newcommand{\ef}[1]{\SI{#1}{\gram\COtwo\per{\kilo\watt\hour}}}
+\newcommand{\efe}[1]{\SI{#1}{\gram\COtwoe\per{\kilo\watt\hour}}}
+\newcommand{\hr}[1]{\SI{#1}{\mega\hps}}
+\newcommand{\eff}[1]{\SI{#1}{{\mega\hps}\per{\watt}}}
+\newcommand{\effinv}[1]{\SI{#1}{\joule\per{\mega\hash}}}
+\newcommand{\eurkwh}[1]{\SI{#1}{\EUR\per{\kilo\watt\hour}}}
+\newcommand{\hps}{\hash\per{\second}}
+
+\newcommand{\todaterange}{(2015-07-15 to \printfdate{ISOext})}
+
+\title{Ethereum Emissions: A Bottom-up Estimate \\
+%    \color{red} Draft. Not for distribution.
+}
+\author{Kyle McDonald \\ \href{mailto:kyle@kylemcdonald.net}{kyle@kylemcdonald.net}}
+
+\begin{document}
+
+\initcurrdate
+
+\interfootnotelinepenalty=10000
+
+\DTLsetseparator{=}
+\DTLloaddb[noheader, keys={thekey,thevalue}]{mydata}{data.dat}
+\newcommand{\var}[1]{\DTLfetch{mydata}{thekey}{#1}{thevalue}}
+
+\maketitle
+
+\begin{abstract}
+The Ethereum ecosystem is maintained by a distributed global network of computers that currently require massive amounts of computational power. Previous work on estimating the energy use and emissions of the Ethereum network has relied on top-down economic analysis and rough estimates of hardware efficiency and emissions factors. In this work we provide a bottom-up analysis that works from hashrate to an energy usage estimate, and from mining locations to an emissions factor estimate, and combines these for an overall emissions estimate.
+
+\textbf{Keywords:} 
+Ethereum; cryptocurrency; energy; emissions
+\end{abstract}
+
+\input{body}
+
+\input{appendix}
+
+\printbibliography
+
+\end{document}

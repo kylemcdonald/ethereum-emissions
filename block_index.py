@@ -37,7 +37,7 @@ class Block:
         return datetime.datetime.fromtimestamp(self.timestamp)
 
 class BlockIndex:
-    def __init__(self, db_file='extra_data.sqlite3', read_only=False):
+    def __init__(self, db_file='cache/block_index.sqlite3', read_only=False):
         flags = '?mode=ro' if read_only else ''
         self.db = sqlite3.connect(f'file:{db_file}{flags}', uri=True)
         # self.db.execute('PRAGMA journal_mode=wal')

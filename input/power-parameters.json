@@ -1,0 +1,23 @@
+{
+    "lower": {
+        "hashing_efficiency_offset": 0.08,
+        "datacenter_overhead": 1.01,
+        "hardware_overhead": 1.01,
+        "grid_loss": 1.05,
+        "psu_efficiency": 0.95
+    },
+    "best": {
+        "hashing_efficiency_offset": 0,
+        "datacenter_overhead": 1.10,
+        "hardware_overhead": 1.03,
+        "grid_loss": 1.06,
+        "psu_efficiency": 0.90
+    },
+    "upper": {
+        "hashing_efficiency_offset": -0.08,
+        "datacenter_overhead": 1.1,
+        "hardware_overhead": 1.06,
+        "grid_loss": 1.07,
+        "psu_efficiency": 0.80
+    }
+}

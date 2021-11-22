@@ -5,8 +5,8 @@ from block_index import decode_extra_data
 
 class BlockClassifier:
     def __init__(self,
-            extra_data_label_regex_fn='data/extra_data_label_regex.json',
-            miner_labels_fn='data/mining-addresses.csv'):
+            extra_data_label_regex_fn='input/extra_data_label_regex.json',
+            miner_labels_fn='input/mining-addresses.csv'):
         with open(extra_data_label_regex_fn) as f:
             regexes = json.load(f)
         self.extra_data_label_regex = [(re.compile(regex, re.IGNORECASE), label) for regex,label in regexes.items()]

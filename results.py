@@ -2,7 +2,7 @@ import json
 import os
 
 class Results:
-    def __init__(self, fn='results.json'):
+    def __init__(self, fn='cache/results.json'):
         self.fn = fn
         try:
             with open(fn) as f:
@@ -21,7 +21,7 @@ class Results:
         return self.data[key]
 
     def __str__(self):
-        return '\n'.join([f'{k}={v}' for k,v in self.data.items()])
+        return '\n'.join([f'{k}={v}' for k,v in sorted(self.data.items())])
 
 if __name__ == '__main__':
     results = Results()
