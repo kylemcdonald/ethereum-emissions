@@ -3,8 +3,10 @@
   - separate out region distribution plot
   - add medium article? with contact sheet pic of pdf?
 -->
+<html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ethereum Emissions and Power</title>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js"
       integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA=="
@@ -100,32 +102,6 @@
         })
         return columns;
       }
-  
-      // function sum(arr) {
-      //   return arr.reduce((a, b) => a + b, 0);
-      // }
-  
-      // function mean(arr) {
-      //   return sum(arr) / arr.length;
-      // }
-  
-      // function groupByMonth(x, y, grouper=mean) {
-      //   let months = x.map(e => e.substring(0,7));
-      //   let grouped = {};
-      //   months.map((e,i) => {
-      //     if (!grouped[e]) {
-      //       grouped[e] = [];
-      //     } 
-      //     grouped[e].push(y[i]);  
-      //   })
-      //   let xOut = [];
-      //   let yOut = [];
-      //   for(const group in grouped) {
-      //     xOut.push(group);
-      //     yOut.push(grouper(grouped[group]));
-      //   }
-      //   return [xOut, yOut];
-      // }
 
       function convert_ktco2_per_day_to_mtco2_per_year(x) {
         return (x * 365) / 1e3;
@@ -328,3 +304,4 @@
     </script>
   
   </body>
+  </html>
