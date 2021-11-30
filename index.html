@@ -1,11 +1,28 @@
-<!--
-  - "how many per transaction?"
-  - separate out region distribution plot
-  - add medium article? with contact sheet pic of pdf?
--->
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@kcimc">
+    <meta name="twitter:creator" content="@kcimc">
+    <meta name="twitter:image" content="https://kylemcdonald.github.io/ethereum-emissions/images/card.png">
+
+    <meta name="description"
+        content="A bottom-up estimate of Ethereum emissions and energy use.">
+
+    <meta property="og:url" content="https://kylemcdonald.github.io/ethereum-emissions/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ethereum Emissions" />
+    <meta property="og:description"
+        content="A bottom-up estimate of Ethereum emissions and energy use." />
+    <meta property="og:image" content="/images/card.png" />
+    <meta property="og:image:alt" content="Screenshot of the Ethereum emissions tracker website.">
+
+
     <title>Ethereum Emissions and Power</title>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js"
@@ -13,33 +30,28 @@
       crossorigin="anonymous"></script>
   
     <style>
+      body {
+        margin:0;
+      }
+
       * {
         font-family: sans-serif;
       }
 
       #container {
-        margin: 1em;
+        margin: 0;
+        padding: 1em;
+        background-color: black;
+        color: white;
+        overflow: auto;
+        position: relative;
       }
   
       select, button {
         margin: 0.1em;
         font-size: 1em;
-      }
-  
-      .fullscreen {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-  
-      #loading {
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.5);
-        font-size: 2em;
+        background: black;
+        color: white;
       }
 
       .box {
@@ -48,44 +60,108 @@
         font-size: 2em;
         width: auto;
         float: left;
-        height: 2.5em;
-        border-left: 1px solid black;
+        border: 1px solid white;
+        position: relative;
       }
-
-      #plot {
-        /* margin: 20px; */
+      
+      sub {
+        line-height: 0;
+        display: inline-block;
       }
 
       .value {
         font-weight: bold;
       }
 
-      a {
+      #container a {
+        color: white;
+      }
+
+      .icon {
+        max-height: 1em;
+        margin-right: 0.2em;
+        position: relative;
+        top: 0.1em;
+      }
+
+      .units {
+        margin-left: 0.15em;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        text-decoration-thickness: 1px;
+      }
+
+      .article {
+        max-width: 800px;
+        margin: 1em;
+        font-size: 1.2em;
+      }
+
+      .article a {
         color: black;
+      }
+
+      .article img {
+        max-width: 100%;
+      }
+
+      h3 {
+        margin-bottom: -0.5em;
+      }
+
+      .box a {
+        text-decoration: none;
+      }
+
+      @media only screen and (max-width: 700px) {
+        #plot {
+          height: 300px;
+        }
+      }
+
+      .download {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 0.8em;
+        margin: 0.2em;
+      }
+
+      hr {
+        border-top: 1px solid black;
       }
     </style>
   </head>
   
   <body>
     <div id='container'>
-      <h1>Ethereum Emissions and Power / <a href="https://twitter.com/kcimc">@kcimc</a></h1>
+      <h1>Ethereum Emissions: A Bottom-up Estimate</h1>
       <div id='buttons'>
-        <select id="duration" onchange="repressButton()">
+        <select id="duration" onchange="updateEmissionsAndPower()">
           <option value="annualized">Annualized</option>
           <option value="daily">Daily</option>
         </select>
+        <select id="mode" onchange="updateEmissionsAndPower()">
+          <option value="emissions">Emissions</option>
+          <option value="power">Power</option>
+        </select>
       </div>
       <div id='plot'></div>
-      <div id='loading' class='fullscreen'>Loading...</div>
       <div class="box">
-        <span id="twh_per_year" class="value">...</span> Terawatt hours per year<br>
-        <span id="current_gw" class="value">...</span> Gigawatts
+        <a href="output/daily-ktco2.csv"><img src="images/download.png" class="download" alt="Download icon"/></a>
+        <img src="images/carbon-dioxide.png" alt="CO2 cloud" class="icon"/><strong>Emissions</strong><br>
+        <a href="javascript:setDurationAndMode('daily', 'emissions')"><span id="current_ktco2_per_day" class="value">...</span><span title="Kilotons CO2 per day" class="units">ktCO<sub>2</sub>/day</span></a><br>
+        <a href="javascript:setDurationAndMode('annualized', 'emissions')"><span id="mtco2_per_year" class="value">...</span><span title="Megatons CO2 per year" class="units">MtCO<sub>2</sub>/year</span></a><br>
+        <a href="javascript:setDurationAndMode('annualized', 'emissions')"><span id="mtco2_total" class="value">...</span><span title="Megatons CO2 total" class="units">MtCO<sub>2</sub> total</span></a>
       </div>
       <div class="box">
-        <span id="mtco2_per_year" class="value">...</span> Megatons CO<sub>2</sub> per year<br>
-        <span id="current_ktco2_per_day" class="value">...</span> Kilotons CO<sub>2</sub> per day
+        <a href="output/daily-gw.csv"><img src="images/download.png" class="download" alt="Download icon"/></a>
+        <img src="images/electricity.png" alt="Electric plug" class="icon"/><strong>Energy</strong><br>
+        <a href="javascript:setDurationAndMode('daily', 'power')"><span id="current_gw" class="value">...</span><span title="Gigawatts" class="units">GW</span></a><br>
+        <a href="javascript:setDurationAndMode('annualized', 'power')"><span id="twh_per_year" class="value">...</span><span title="Terawatt hours per year" class="units">TWh/year</span></a><br>
+        <a href="javascript:setDurationAndMode('annualized', 'power')"><span id="twh_total" class="value">...</span><span title="Terawatt hours total" class="units">TWh total</span></a>
       </div>
-      <h2 style="float:right"><a href="https://github.com/kylemcdonald/ethereum-emissions">GitHub</a></h2>
     </div>
   
     <script>
@@ -103,6 +179,10 @@
         return columns;
       }
 
+      function sum(arr) {
+        return arr.reduce((a, b) => a + b, 0);
+      }
+
       function convert_ktco2_per_day_to_mtco2_per_year(x) {
         return (x * 365) / 1e3;
       }
@@ -118,13 +198,15 @@
         var myPlot = document.getElementById(elementId);
         var isUnderRelayout = false;
         myPlot.on('plotly_relayout', function (relayoutData) {
+          if (!('xaxis.range[0]' in relayoutData)) {
+            return;
+          }
   
           if (isUnderRelayout != true) {
             isUnderRelayout = true;
   
             let start = relayoutData['xaxis.range[0]'].substring(0,10);
             let end = relayoutData['xaxis.range[1]'].substring(0,10);
-            console.log(start, end);
   
             let highs = myPlot.data.map(data => {
               let xstart = data.x.map(e => e == start).indexOf(true);
@@ -153,13 +235,11 @@
 
       async function loadLowerBestUpper(options) {
         const elementId = 'plot';
-        const loadingElt = document.getElementById('loading');
-        loadingElt.style.display = '';
         
         const fn = options.filename;
         const title = options.title;
   
-        const data = await d3.csv(fn);
+        const data = csv[fn];
         const columns = rowsToColumns(data);
         const index = 'Date';
 
@@ -190,21 +270,33 @@
         }
 
         const layout = {
-          title: title,
+          // title: title,
           hovermode: 'closest',
           yaxis: {
             fixedrange: true,
-            title: units
+            title: units,
+            gridcolor: '#333',
+            gridwidth: 1,
+            side: 'right'
+          },
+          xaxis: {
+            gridcolor: '#333',
+            gridwidth: 1
           },
           font: {
-            family: 'sans-serif'
+            family: 'sans-serif',
+            size: 16,
+            color: '#fff'
           },
           margin: {
-            r: 0,
-            l: 40,
-            b: 20,
-            t: 40,
+            r: 50,
+            l: 0,
+            b: 25,
+            t: 0,
+            pad: 5
           },
+          plot_bgcolor: '#000',
+          paper_bgcolor: '#000',
           dragmode: 'pan',
           // height: window.innerHeight
         };
@@ -216,8 +308,8 @@
         };
 
         traces['lower'].fill = 'tonexty';
-        traces['lower'].fillcolor = 'rgba(0,0,0,1)';
-        traces['best'].line.color = 'rgba(255,255,255,1)';
+        traces['lower'].fillcolor = '#fff';
+        traces['best'].line.color = '#000';
   
         traces = [
           traces['upper'],
@@ -226,13 +318,12 @@
         ];
 
         Plotly.newPlot(elementId, traces, layout, config).then(() => {
-          loadingElt.style.display = 'none';
           attachRelayout(elementId);
         })
       }
   
       const options = {
-        'Emissions': {
+        emissions: {
           filename: 'output/daily-ktco2.csv',
           title: {
             'daily': 'Ethereum Daily Emissions',
@@ -244,7 +335,7 @@
           },
           annualizer: convert_ktco2_per_day_to_mtco2_per_year
         },
-        'Power': {
+        power: {
           filename: 'output/daily-gw.csv',
           title: {
             'daily': 'Ethereum Power',
@@ -261,47 +352,79 @@
         // }
       };
   
-      let currentKey = 'Emissions';
-      function pressButton(key) {
-        currentKey = key;
-        const args = {...options[key]};
-        if (document.getElementById('duration').value == 'annualized') {
-          args.mode = 'annualized';
-        } else {
-          args.mode = 'daily';
-        }
-        args.title = args.title[args.mode];
-        loadLowerBestUpper(args);
-      }
-  
-      function repressButton() {
-        pressButton(currentKey);
-      }
-
+      let csv = {};
       async function initializeAnnualized() {
-        const daily_gw = await d3.csv('output/daily-gw.csv');
-        const current_gw = +daily_gw[daily_gw.length - 1]['best'];
-        document.getElementById('current_gw').innerText = current_gw.toFixed(2);
-        const twh_per_year = convert_gw_to_twh_per_year(current_gw);
-        document.getElementById('twh_per_year').innerText = twh_per_year.toFixed(1);
-        const daily_ktco2 = await d3.csv('output/daily-ktco2.csv');
+        let fn;
+
+        fn = options.emissions.filename;
+        const daily_ktco2 = await d3.csv(fn);
+        csv[fn] = daily_ktco2;
         const current_ktco2_per_day = +daily_ktco2[daily_ktco2.length - 1]['best'];
         document.getElementById('current_ktco2_per_day').innerText = current_ktco2_per_day.toFixed(1);
         const mtco2_per_year = convert_ktco2_per_day_to_mtco2_per_year(current_ktco2_per_day);
         document.getElementById('mtco2_per_year').innerText = mtco2_per_year.toFixed(2);
+        const ktco2_total = sum(rowsToColumns(daily_ktco2)['best'].map(e=>+e));
+        const mtco2_total = ktco2_total / 1e3;
+        document.getElementById('mtco2_total').innerText = mtco2_total.toFixed(1);
+
+        fn = options.power.filename;
+        const daily_gw = await d3.csv(fn);
+        csv[fn] = daily_gw;
+        const current_gw = +daily_gw[daily_gw.length - 1]['best'];
+        document.getElementById('current_gw').innerText = current_gw.toFixed(2);
+        const twh_per_year = convert_gw_to_twh_per_year(current_gw);
+        document.getElementById('twh_per_year').innerText = twh_per_year.toFixed(1);
+        const gwh_total = sum(rowsToColumns(daily_gw)['best'].map(e=>+e*24));
+        const twh_total = gwh_total / 1e3;
+        document.getElementById('twh_total').innerText = twh_total.toFixed(1);
+
+        const current_date = daily_gw[daily_gw.length - 1]['Date'];
+        document.getElementById('last_updated').innerText = current_date;
       }
-  
-      const buttons = document.getElementById('buttons');
-      for (const key in options) {
-        const button = document.createElement('button');
-        button.innerText = key;
-        button.onclick = () => { pressButton(key) };
-        buttons.append(button);
+
+      function updateEmissionsAndPower() {
+        key = document.getElementById('mode').value;
+        const args = {...options[key]};
+        args.mode = document.getElementById('duration').value;
+        args.title = args.title[args.mode];
+        loadLowerBestUpper(args);
       }
-  
-      repressButton();
-      initializeAnnualized();
+
+      function setDurationAndMode(duration, mode) {
+        document.getElementById('duration').value = duration;
+        document.getElementById('mode').value = mode;
+        updateEmissionsAndPower();
+      }
+
+      initializeAnnualized().then(updateEmissionsAndPower);
     </script>
-  
+
+<div class="article">
+  <h2>About</h2>
+  <p>This analysis of the energy and emissions of the Ethereum network relies on current and historical data, including: hashrate, hardware overhead and typical worker configurations, datacenter overhead, grid loss, hashing efficiencies, power supply efficiencies, mining hardware mix, worker locations and pool distributions, and international emissions factors. It does not factor in the price of Ethereum or the price of electricity, so it may be underestimating the energy usage when the price is rising.</p>
+  <p>For a complete breakdown, check out this short <a href="">this summary post</a> or <a href="https://arxiv.org/abs/">read the full article</a>.</p>
+  <a href="https://arxiv.org/abs/"><img src="images/thumbnails.jpg" alt="Grid of thumbnail images from linked article"/></a>
+  <h2 id="faqs-">FAQs</h2>
+  <h3>“What do these numbers look like per-transaction?”</h3>
+  <p>Some transactions on the Ethereum network actually represent massive collections of transactions. Properly accounting for the number of discrete user-initiated actions on the blockchain would be a project unto itself. But also, the Ethereum network is a bit like your home network router. When you turn on your home router, it uses a fixed amount of energy whether you are streaming high-resolution movies or just sending emails. Ethereum also uses a fixed amount of energy regardless of how many transactions are on the network (at least, during normal activity). Because there is no direct marginal increase in energy from additional use, this makes the question of responsibility a philosophical one rather than a technical one. Clearly the responsibility for the emissions should belong to those who are investing in and profiting from the system. But dividing the total emissions per day by the total transactions per day might give a sense of scale, but it could be more misleading than helpful.</p>
+  <h3>“How does this compare to other things?”</h3>
+  <p>It's hard to find an appropriate comparison. A large centralized service like Facebook runs on a third of the energy. Overall, Ethereum represents around 0.1% of global electricity. In terms of emissions, a typical 1GW capacity coal power plant also emits around 20ktCO<sub>2</sub>/day at full power. So Ethereum is comparable to keeping an entire coal power plant running at full power.</p>
+  <h3>“What is the difference between <em>annualized</em> and <em>daily</em>?</h3>
+  <p>Energy and emissions vary dramatically from day to day. The best way to track them is by giving daily values in the units kilotons CO<sub>2</sub> per day (ktCO<sub>2</sub>/day) and daily average power in gigawatts (GW). But most other studies in this space, and most statistics about prolonged energy and emissions, give annual totals in megatons CO<sub>2</sub> per year (MtCO<sub>2</sub>/year) and terawatt hours per year (TWh/year). For the sake of comparison I provide both versions here.</p>
+  <h3>“Why is there such a large range between the lower and upper energy estimates?”</h3>
+  <p>Some parameters are known nearly exactly (like hashrate, or grid loss) but others like datacenter overhead are imprecise, ranging from 1% overhead to 20% overhead. Narrowing the range would require transparency from mining operations, which would sacrifice some of their competitive advantage.</p>
+  <h3>“What about all the electronic waste from old hardware?”</h3>
+  <p>This is a non-negligible part of the equation, <a href="https://github.com/lucadonnoh/GreenNFT">Marro and Donno</a> estimate around 5% additional emissions from hardware alone over the life of mining equipment.</p>
+  <h3>“I heard that proof-of-work seeks cheap electricity, like unused renewables?”</h3>
+  <p>This may be more true for Bitcoin than Ethereum, because Ethereum mining is wildly profitable and more geographically distributed. Right now I could earn a few dollars a day in profit even with my single GPU and 24 cent per kilowatt hour power. That said, the overall emissions factor has historically been lower than the global average, especially due to mining in South China (not any more) and Sweden (perhaps <a href="https://www.fi.se/en/published/presentations/2021/crypto-assets-are-a-threat-to-the-climate-transition--energy-intensive-mining-should-be-banned/">not much longer in Sweden</a> either).</p>
+  <h3>“I heard that some proof-of-work mining happens with stranded energy, like natural gas that would otherwise be flared?”</h3>
+  <p>This is well documented for Bitcoin mining in Texas, but I’ve had trouble finding any indication that a significant portion of the Ethereum hashrate comes from flared gas.</p>
+  <h3>“I heard that this isn’t so much when you compare it to all the energy and emissions behind something like the US dollar.”</h3>
+  <p>One piece of the infrastructure backing the US dollar is the US military—one of the worlds largest polluters, emitting around <a href="https://www.forbes.com/sites/niallmccarthy/2019/06/13/report-the-u-s-military-emits-more-co2-than-many-industrialized-nations-infographic/">60 MtCO<sub>2</sub>/year</a>. Over 8x what we estimate for Ethereum. But the US dollar also has a market capitalization around 80x higher than Ethereum. This comparison is also a bit of a stretch when you consider that Ethereum is not just a cryptocurrency, but also a kind of decentralized databased and decentralized cloud computing system. A proper comparison would not treat it as a currency alone.</p>
+  <hr>
+  <h3>Made by <a href="https://twitter.com/kcimc">Kyle McDonald</a><br>Source on <a href="https://github.com/kylemcdonald/ethereum-emissions">GitHub</a></h3>
+  <p>Last updated <span id="last_updated">...</span></p>
+</div>
+
   </body>
   </html>
