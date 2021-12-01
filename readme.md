@@ -2,7 +2,10 @@
 
 Research into the daily energy consumption and emissions of the entire Ethereum network.
 
-# How to run
+* [Ethereum Emissions Tracker](https://kylemcdonald.github.io/ethereum-emissions/)
+* [Ethereum Emissions: A bottom-up estimate](https://github.com/kylemcdonald/ethereum-emissions/blob/main/McDonald-Ethereum-Emissions.pdf) (article)
+
+## How to run
 
 First, start downloading this [compressed snapshot of Ethereum blockchain metadata](https://storage.googleapis.com/ethereum-emissions/block_index-2021-11-20.zip) (158MB) and extract it inside the `cache/` folder.
 
