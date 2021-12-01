@@ -114,8 +114,8 @@ def cumulative_emissions_kt_to_date(date):
     return total_kt
 
 peak = np.argmax(power_results['best'])
-peak_date = dates[peak].isoformat()
-results['peak_date'] = peak_date
+peak_power_date = dates[peak].isoformat()
+results['peak_power_date'] = peak_power_date
 
 for e in ['best','lower','upper']:
     energy = convert_gigawatts_to_twh_per_year(power_results[e][peak])
@@ -151,6 +151,7 @@ for e in ['best','lower','upper']:
     emissions_kt = emissions_results[e][peak_emissions]
     emissions_kt_annual = emissions_kt * 365
     emissions_mt_annual = emissions_kt_annual / 1e3
+    results[f'peak_emissions_{e}'] = f'\ktcotwo{{{emissions_kt:.0f}}}'
     results[f'peak_emissions_annual_{e}'] = f'\mtcotwo{{{emissions_mt_annual:.0f}}}'
     
 first_efficiency = efficiency_at_date(dates[0])

@@ -170,7 +170,7 @@ $\powersupplyefficiency$ & 0.95 & 0.80 & 0.90
 \end{tabular}
 \end{center}
 
-With daily hashrate estimates from Etherscan\cite{etherscanio_ethereum_2021}, and our best estimate for each parameter, using equation \ref{eq:1} gives us a power estimate peaking at \var{peak_power_best} on \var{peak_date}, as shown in \textbf{figure \ref{fig:energy}}. Using the lower and higher parameter estimates for this day give \var{peak_power_lower} and \var{peak_power_upper}.
+With daily hashrate estimates from Etherscan\cite{etherscanio_ethereum_2021}, and our best estimate for each parameter, using equation \ref{eq:1} gives us a power estimate peaking at \var{peak_power_best} on \var{peak_power_date}, as shown in \textbf{figure \ref{fig:energy}}. Using the lower and higher parameter estimates for this day give \var{peak_power_lower} and \var{peak_power_upper}.
 
 Applying equation \ref{eq:1} directly gives a value in units of power (Watts). Power is an instantaneous measurement. Power usage during one day might be given in Watts (average power), or as total energy during that day (power usage over time, Watt-hours or \SI{}{\watt\hour}). Other studies extrapolate to annualized energy usage, as yearly Terawatt hours or \SI{}{\TWh}.
 
@@ -186,7 +186,7 @@ De Vries & \SI{7.64}{\TWh} & \SI{20.8}{\TWh}
 
 The results from this study mirror Krause and Tolaymat almost exactly.\footnote{Krause and Tolaymat estimate annual energy for 2018 based on data from the first half of the year, but this turned out to also be representative of the hashrate during second half of the year.} While Krause and Tolaymat do not account for datacenter overhead, hardware overhead, grid loss, and more, they estimate a lower hashing efficiency than this study: on their first date of \var{krause_first_date} they estimate \var{krause_first_efficiency} while we estimate \var{krause_first_efficiency_ours}. On their last date \var{krause_last_date} they estimate \var{krause_last_efficiency} while we estimate \var{krause_last_efficiency_ours}.
 
-The recent increase by de Vries could be interpreted as an decrease in overall efficiency. This decrease would mostly likely be caused by a decrease in $\hashingefficiency$ or by an increase in $\hardwareoverhead$. The HiveOS data indicates that hashing efficiency has increased since 2020-04 at a similar rate to our GPU trendline. This means that high prices may not be significantly changing the hardware mix. However, when hobbyist miners can profit from high rewards in spite of their relatively inefficient workers, their activity may decrease the overall efficiency by lowering the average $\hardwareoverhead$.
+The recent increase by de Vries could be interpreted as an decrease in overall efficiency. This decrease would mostly likely be caused by a decrease in $\hashingefficiency$ or by an increase in $\hardwareoverhead$. The HiveOS data indicates that hashing efficiency has increased since 2020-04 at a similar rate to our trendline. This means that high prices may not be significantly changing the hardware mix. However, when hobbyist miners can profit from high rewards in spite of their relatively inefficient workers, their activity may decrease the overall efficiency by lowering the average $\hardwareoverhead$.
 
 To date {\todaterange}, we estimate the Ethereum network has used between \var{total_energy_lower} and \var{total_energy_upper} with a best guess of \var{total_energy_best}.
 
@@ -253,7 +253,7 @@ After the \var{known_by_extra_data_pct} of blocks mapped with \texttt{extraData}
     \label{fig:emissions}
 \end{figure*}
 
-To compute a daily emissions factor in \textbf{figure \ref{fig:emissions-factors}}, we take an average across the emissions factors of all mapped blocks for that day.\footnote{This daily emissions factor estimate is noisy for the first three weeks, so we replace that data with the median over that period.} Then to estimate total daily emissions in \textbf{figure \ref{fig:emissions}}, we multiply the emissions factor for that day by the energy used on that day.
+To compute a daily emissions factor in \textbf{figure \ref{fig:emissions-factors}}, we take an average across the emissions factors of all mapped blocks for that day.\footnote{This daily emissions factor estimate is noisy for the first three weeks, so we replace that data with the median over that period.} Then to estimate total daily emissions in \textbf{figure \ref{fig:emissions}}, we multiply the emissions factor for that day by the energy used on that day. This gives us an emissions estimate peaking at \var{peak_emissions_best} on \var{peak_emissions_date}. Using the lower and higher parameter estimates for this day give \var{peak_emissions_lower} and \var{peak_emissions_upper}.
 
 Krause and Tolaymat estimate between \mtcotwo{0.291} and \mtcotwo{1.37} total for the period from 2016-01-01 through 2018-06-30. We estimate between \var{krause_emissions_period_lower} and \var{krause_emissions_period_upper} with a best guess of \var{krause_emissions_period_best}. This discrepancy is due to an inappropriate methodology used by Krause and Tolaymat. They compute a daily ``energy-per-coin'', take the median of these values, then multiply this median by the total number of coins, and finally multiply by an emissions factor. If we simplify their methodology by computing a daily ``emissions-per-day'' then summing, their numbers give us a lower bound of \mtcotwo{1.52} for \ef{193} and an upper bound of \mtcotwo{7.21} for \ef{914}.
 
@@ -262,20 +262,6 @@ De Vries uses a fixed emissions factor of \ef{475} based on a location distribut
 Marro and Donno estimate \SI{67.80}{\kilo\ton\COtwoe} average daily emissions for the period 2021-04-29 through 2021-05-05, while we estimate \var{marro_equivalent}. Their estimate may be treated as a kind of upper bound, because it is a top-down estimate based on the assumption that miners spend all their revenue on hardware and electricity with zero profit. This discrepancy may also be related to their low estimate of hardware efficiency at \eff{0.17} while most recent hardware performs around \eff{0.3} or better.
 
 To date {\todaterange}, we estimate the Ethereum network has emitted between \var{total_emissions_lower} and \var{total_emissions_upper} with a best guess of \var{total_emissions_best}.
-
-% \section{Comparison}
-
-% CBECI\cite{cambridge_centre_for_alternative_finance_cambridge_2021} cautions against comparing PoW energy and emissions estimates to other activities for three reasons:
-
-% \begin{enumerate}
-%     \item \textbf{Apples and oranges} Cryptocurrencies are difficult to compare to any other activity.
-%     \item \textbf{Limited data availability} Comparable activities may have their own wildly varying energy and emissions estimates.
-%     \item \textbf{Presenter bias} Depending on the comparison, the energy or emissions of a cryptocurrency may be made to seem especially small or large.
-% \end{enumerate}
-
-% Ethereum represents around 0.1\% of all electricity consumption at a peak annualized energy consumption of \var{peak_energy_best}, compared to the global electricity consumption of \SI{22315}{\TWh}. This can be made to sound large by comparing to the consumption of an entire country like Ecuador (\SI{26}{\TWh}\cite{us_eia_international_2021}), an entire state like Massachusetts (\SI{21}{\TWh}\cite{us_epa_data_2020}), or popular internet services like Facebook (\SI{7.2}{\TWh}\cite{facebook_energy_2020}). Or it can be made to sound smaller by comparing it to the electricity used for televisions in the USA (\SI{60}{\TWh}).
-
-% The peak annualized emissions of \var{peak_emissions_annual_best} represents around 0.02\% of global emissions (\mtcotwo{33000}\cite{iea_co2_2021}). This could be compared to the emissions of an entire country like Costa Rica (\mtcotwo{9}\cite{european_commission_joint_research_centre_fossil_2020}). This could be made to sound large by comparing it to the annual emissions of 500 thousand people in the USA, or 4.2 million people in India.
 
 \section{Future Work}
 
@@ -303,7 +289,7 @@ To date {\todaterange}, we estimate the Ethereum network has emitted between \va
     
     \item Geolocalized DNS activity associated with mining servers might indicate where miners are based. When a worker connects to a mining pool, it has to translate a domain name like \texttt{eth.f2pool.com} to an IP address like \texttt{172.65.210.108}. The worker will ask a DNS server for this information, and some DNS servers keep request logs. OpenDNS request statistics can be accessed using Cisco Umbrella Investigate. We checked a list of 46 mining pool servers from 11 mining pools with Umbrella Investigate in May 2021. We found that 40\% of requests originated from China, 15\% from the USA, 4\% from Brazil, 3\% from Indonesia, 3\% from Russia, plus a long tail of additional locations. Servers with \texttt{asia} in the domain name had more requests from Australia, Vietnam, Korea, and Japan. Servers with \texttt{eu} in the domain name had more requests from European countries. DNS lookups do not correspond to hashrate, and because lookups are locally cached they do not correspond worker count. Also, not all regions rely on the same mix of DNS servers.
     
-    \item Hardware manufacturers like Nvidia, AMD, Linzhi, and Innosilicon may be able to provide a more precise estimate or upper bound on efficiency based on sales. Nvidia has reported \$526M\cite{leswing_nvidia_2021} in sales of crypto-specific GPUs, implying \SI{28000}{\giga\hps} based on the price and hashrate reported by Hut 8\cite{pan_ethereum_2021}. A small hint regarding Linzhi is that over 500 units are identified in Nanopool worker IDs, and Linzhi writes ``For purchases of over 100 units, please contact us''.
+    \item Hardware manufacturers like Nvidia, AMD, Linzhi, and Innosilicon may be able to provide a more precise estimate or upper bound on efficiency based on sales. Nvidia has reported \$526M\cite{leswing_nvidia_2021} in sales of crypto-specific GPUs, implying \SI{28}{\tera\hps} based on the price and hashrate reported by Hut 8\cite{pan_ethereum_2021}. A small hint regarding Linzhi is that over 500 units are identified in Nanopool worker IDs, and Linzhi writes ``For purchases of over 100 units, please contact us''.
     
     \item Our low and high estimates do not account for uncertainty in the regional distribution of mining. Emissions factors vary by more than an order of magnitude, from around \ef{40} during the west season in South China up to \ef{900} in parts of the USA. Given our network emissions factor estimates from \var{emissions_min} to \var{emissions_max}, this would imply that the total emissions could be significantly higher or lower than our high and low estimates.
     
