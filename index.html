@@ -23,7 +23,7 @@
     <meta property="og:image:alt" content="Screenshot of the Ethereum emissions tracker website.">
 
 
-    <title>Ethereum Emissions and Power</title>
+    <title>Ethereum Emissions</title>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js"
       integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA=="
@@ -402,8 +402,8 @@
 <div class="article">
   <h2>About</h2>
   <p>This analysis of the energy and emissions of the Ethereum network relies on current and historical data, including: hashrate, hardware overhead and typical worker configurations, datacenter overhead, grid loss, hashing efficiencies, power supply efficiencies, mining hardware mix, worker locations and pool distributions, and international emissions factors. It does not factor in the price of Ethereum or the price of electricity, so it may be underestimating the energy usage when the price is rising.</p>
-  <p>For a complete breakdown, check out this short <a href="">this summary post</a> or <a href="https://arxiv.org/abs/">read the full article</a>.</p>
-  <a href="https://arxiv.org/abs/"><img src="images/thumbnails.jpg" alt="Grid of thumbnail images from linked article"/></a>
+  <p>For a complete breakdown, check out this <a href="https://medium.com/@kcimc/ethereum-emissions-c750556e7364">short summary post</a> or <a href="https://github.com/kylemcdonald/ethereum-emissions/blob/main/McDonald-Ethereum-Emissions.pdf">read the full article</a>.</p>
+  <a href="https://github.com/kylemcdonald/ethereum-emissions/blob/main/McDonald-Ethereum-Emissions.pdf"><img src="images/thumbnails.jpg" alt="Grid of thumbnail images from linked article"/></a>
   <h2 id="faqs-">FAQs</h2>
   <h3>“What do these numbers look like per-transaction?”</h3>
   <p>Some transactions on the Ethereum network actually represent massive collections of transactions. Properly accounting for the number of discrete user-initiated actions on the blockchain would be a project unto itself. But also, the Ethereum network is a bit like your home network router. When you turn on your home router, it uses a fixed amount of energy whether you are streaming high-resolution movies or just sending emails. Ethereum also uses a fixed amount of energy regardless of how many transactions are on the network (at least, during normal activity). Because there is no direct marginal increase in energy from additional use, this makes the question of responsibility a philosophical one rather than a technical one. Clearly the responsibility for the emissions should belong to those who are investing in and profiting from the system. But dividing the total emissions per day by the total transactions per day might give a sense of scale, but it could be more misleading than helpful.</p>
