@@ -1,6 +1,18 @@
 import pandas as pd
 import datetime
+from itertools import islice, chain
 
+def chunks(x, n):
+    # return slices of lists
+    if hasattr(x, '__len__'):
+        for i in range(0, len(x), n):
+            yield x[i:i+n]
+    else:
+        # return sub-generators of generators
+        i = iter(x)
+        for e in i:
+            yield chain([e], islice(i, n-1))
+            
 def normalize_row_to_one(df):
     return df.div(df.sum(axis=1), axis=0)
 

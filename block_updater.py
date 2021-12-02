@@ -1,4 +1,4 @@
-from utils.itertools import chunks
+from emissions_utils import chunks
 import time
 
 from fast_web3 import FastWeb3
