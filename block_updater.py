@@ -8,7 +8,8 @@ chunk_size = 100
 web3 = FastWeb3()
 index = BlockIndex()
 
-latest_block_number = web3.get_latest_block_number()
+final_pow_block = 15537393
+latest_block_number = final_pow_block # web3.get_latest_block_number()
 end_block = latest_block_number
 indexed_block = index.latest_block()
 start_block = 0 if indexed_block is None else indexed_block
