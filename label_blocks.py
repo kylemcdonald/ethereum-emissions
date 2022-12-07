@@ -1,4 +1,5 @@
 import datetime
+from dateutil import tz
 from collections import defaultdict
 
 from block_index import BlockIndex
@@ -8,6 +9,7 @@ from tqdm import tqdm
 import pandas as pd
 import numpy as np
 
+using_metadata_snapshot = True
 index = BlockIndex(read_only=True)
 classifier = BlockClassifier()
 
@@ -15,7 +17,15 @@ block_labels = defaultdict(lambda: defaultdict(int))
 
 total = index.latest_block() - 1
 for block in tqdm(index.list_blocks(skip_genesis=True), total=total):
-    date = block.get_datetime().date()
+    dt = block.get_datetime()
+    if using_metadata_snapshot:
+        # metadata snapshot is in los angeles timezone
+        dt.replace(tzinfo=tz.gettz('America/Los_Angeles'))
+    else:
+        # any data from a local copy will be in the local timezone
+        dt.replace(tzinfo=tz.tzlocal())
+    dt = dt.astimezone(tz.tzutc()) # convert from database time to UTC time
+    date = dt.date()
 
     # first, try to label the block based on the extra data
     label = classifier.classify_extra_data(block.extra_data)
