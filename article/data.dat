@@ -1,9 +1,8 @@
 % manually updated
-ethereum_market_cap=\$500B
-bitcoin_market_cap=\$1,130B
-ethereum_volume=\$18B
-bitcoin_volume=\$41B
-tether_volume=\$77B
+ethereum_market_cap=\$152B
+bitcoin_market_cap=\$325B
+ethereum_volume=\$5B
+bitcoin_volume=\$19B
 
 % output from GPU efficiency
 efficiency_mae=\eff{0.08}
@@ -25,6 +24,7 @@ hashrate_above_350=74\%
 workers_above_850=1\%
 hashrate_above_850=27\%
 nanopool_median_a10_hashrate=\hr{374.0}
+nanopool_date=2021-10-30
 nanopool_date_count=5
 nanopool_median_power=\SI{647}{\watt}
 nanopool_efficiency_estimate=\eff{0.38}
@@ -38,8 +38,8 @@ de_vries_equivalent_october=\ktcotwo{6.0}
 eff_at_end=\eff{0.48}
 eff_at_start=\eff{0.17}
 eff_end_date=2022-09-15
-emissions_max=\mtcotwo{366}
-emissions_min=\mtcotwo{237}
+emissions_max=\eff{366}
+emissions_min=\eff{237}
 extra_data_regex_count=18
 extra_data_region_count=13
 first_efficiency=\eff{0.17}
