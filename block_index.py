@@ -79,3 +79,7 @@ class BlockIndex:
             query += ' LIMIT -1 OFFSET 1'
         for row in self.execute(query):
             yield Block(*row)
+
+    def get_block(self, number):
+        query = f'SELECT * FROM extra_data WHERE block_number={number}'
+        return Block(*self.execute(query).fetchone())
