@@ -151,15 +151,15 @@
       <div class="box">
         <a href="output/daily-ktco2.csv"><img src="images/download.png" class="download" alt="Download icon"/></a>
         <img src="images/carbon-dioxide.png" alt="CO2 cloud" class="icon"/><strong>Emissions</strong><br>
-        <a href="javascript:setDurationAndMode('daily', 'emissions')"><span id="current_ktco2_per_day" class="value">...</span><span title="Kilotons CO2 per day" class="units">ktCO<sub>2</sub>/day</span></a><br>
-        <a href="javascript:setDurationAndMode('annualized', 'emissions')"><span id="mtco2_per_year" class="value">...</span><span title="Megatons CO2 per year" class="units">MtCO<sub>2</sub>/year</span></a><br>
+        <!-- <a href="javascript:setDurationAndMode('daily', 'emissions')"><span id="current_ktco2_per_day" class="value">...</span><span title="Kilotons CO2 per day" class="units">ktCO<sub>2</sub>/day</span></a><br> -->
+        <!-- <a href="javascript:setDurationAndMode('annualized', 'emissions')"><span id="mtco2_per_year" class="value">...</span><span title="Megatons CO2 per year" class="units">MtCO<sub>2</sub>/year</span></a><br> -->
         <a href="javascript:setDurationAndMode('annualized', 'emissions')"><span id="mtco2_total" class="value">...</span><span title="Megatons CO2 total" class="units">MtCO<sub>2</sub> total</span></a>
       </div>
       <div class="box">
         <a href="output/daily-gw.csv"><img src="images/download.png" class="download" alt="Download icon"/></a>
         <img src="images/electricity.png" alt="Electric plug" class="icon"/><strong>Energy</strong><br>
-        <a href="javascript:setDurationAndMode('daily', 'power')"><span id="current_gw" class="value">...</span><span title="Gigawatts" class="units">GW</span></a><br>
-        <a href="javascript:setDurationAndMode('annualized', 'power')"><span id="twh_per_year" class="value">...</span><span title="Terawatt hours per year" class="units">TWh/year</span></a><br>
+        <!-- <a href="javascript:setDurationAndMode('daily', 'power')"><span id="current_gw" class="value">...</span><span title="Gigawatts" class="units">GW</span></a><br> -->
+        <!-- <a href="javascript:setDurationAndMode('annualized', 'power')"><span id="twh_per_year" class="value">...</span><span title="Terawatt hours per year" class="units">TWh/year</span></a><br> -->
         <a href="javascript:setDurationAndMode('annualized', 'power')"><span id="twh_total" class="value">...</span><span title="Terawatt hours total" class="units">TWh total</span></a>
       </div>
     </div>
@@ -401,7 +401,7 @@
 
 <div class="article">
   <h2 style="color:red">Post-merge update</h2>
-  <p>This site is no longer updated, after Ethereum successfully transitioned away from proof-of-work on September 15 6:42:42 2022 UTC. For another estimate of post-merge energy usage see <a href="https://digiconomist.net/ethereum-energy-consumption">Digiconomist</a>.</a></p>
+  <p>This site is no longer updated, after Ethereum successfully transitioned away from proof-of-work on September 15 6:42:42 2022 UTC. For another estimate of post-merge energy usage see <a href="https://digiconomist.net/ethereum-energy-consumption">Digiconomist</a>. The daily emissions and daily energy numbers have been removed.</a></p>
   <h2>About</h2>
   <p>This analysis of the energy and emissions of the Ethereum network relies on current and historical data, including: hashrate, hardware overhead and typical worker configurations, datacenter overhead, grid loss, hashing efficiencies, power supply efficiencies, mining hardware mix, worker locations and pool distributions, and international emissions factors. It does not factor in the price of Ethereum or the price of electricity, so it may be underestimating the energy usage when the price is rising.</p>
   <p>For a complete breakdown, check out this <a href="https://medium.com/@kcimc/ethereum-emissions-c750556e7364">short summary post</a> or <a href="https://arxiv.org/abs/2112.01238">read the full article</a>.</p>
