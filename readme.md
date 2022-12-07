@@ -7,7 +7,7 @@ Research into the daily energy consumption and emissions of the entire Ethereum 
 
 ## How to run
 
-First, start downloading this [compressed snapshot of Ethereum blockchain metadata](https://storage.googleapis.com/ethereum-emissions/block_index-2021-11-20.zip) (158MB) and extract it inside the `cache/` folder.
+First, start downloading this [compressed snapshot of Ethereum blockchain metadata](https://storage.googleapis.com/ethereum-emissions/block_index-2022-09-15.zip) (158MB) and extract it inside the `cache/` folder.
 
 Then, setup the Python environment. I used [Anaconda](https://www.anaconda.com/products/individual) to manage environments, and I created my environment like this:
 
