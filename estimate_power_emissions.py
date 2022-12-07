@@ -13,6 +13,7 @@ emissions_factors = {k.date():v for k,(v,) in emissions_factors.iterrows()}
 
 hashrate_history_ghps = read_csv_date('input/hashrate.csv', index='Date(UTC)')
 dates = [e.date() for e in hashrate_history_ghps.index]
+dates = [e for e in dates if e in emissions_factors] # ignore dates after merge
 hashrate_history_ghps = hashrate_history_ghps['Value'].values
 
 def compute_instant_power(
@@ -33,7 +34,7 @@ daily_ktco2 = defaultdict(list)
 for date, hashrate_ghps in zip(dates, hashrate_history_ghps):
     hashrate_mhps = hashrate_ghps * 1e3
     hashing_efficiency = efficiency_at_date(date)
-    
+
     for k,v in params.items():
         instant_power_watts = compute_instant_power(hashrate_mhps, hashing_efficiency, **v)
         instant_power_gigawatts = instant_power_watts / 1e9
