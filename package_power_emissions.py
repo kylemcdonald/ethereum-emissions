@@ -17,7 +17,7 @@ plt.rcParams['font.size'] = 20
 
 def plot_annual(results, ylabel, label=None):
     fig = plt.figure(figsize=(20,6), facecolor='white')
-    for year in range(2016, 2022):
+    for year in range(2016, 2023):
         plt.axvline(datetime.datetime(year,1,1), color='k', lw=1, linestyle='--')
     plt.plot(dates, results['best'], lw=2, label=label)
     plt.fill_between(dates, results['lower'], results['upper'], alpha=0.25)
