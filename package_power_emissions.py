@@ -186,10 +186,10 @@ for k,v in emissions_results.items():
     results[f'krause_emissions_period_{k}'] = f'\mtcotwo{{{emissions_mt:.1f}}}'
     
 emissions_min = min(factors.values())
-results['emissions_min'] = f'\mtcotwo{{{emissions_min:.0f}}}'
+results['emissions_min'] = f'\eff{{{emissions_min:.0f}}}'
 
 emissions_max = max(factors.values())
-results['emissions_max'] = f'\mtcotwo{{{emissions_max:.0f}}}'
+results['emissions_max'] = f'\eff{{{emissions_max:.0f}}}'
 
 de_vries_equivalent_march_kt_day = emissions_kt_on_date(datetime.datetime(2021,3,8).date())
 de_vries_equivalent_march_mt_year = de_vries_equivalent_march_kt_day * 365 / 1e3
